@@ -1,6 +1,7 @@
 ---
 title: My New Post
 categories: history
+tags: 秦
 
 ---
 

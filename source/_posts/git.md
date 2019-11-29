@@ -2,6 +2,7 @@
 title: git
 date: 2019-11-06 23:08:12
 categories:  programming
+tags:  git
 ---
 
 #                                                                            git
@@ -47,4 +48,4 @@ categories:  programming
 
    
 
-   ​    
+   ​    (未完待续)
