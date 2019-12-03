@@ -287,6 +287,136 @@ categories: programming
 			4. 传递参数时的转换
 			5. 强制类型转换
 3. ## 复合类型
+	1. ### 数组  
+	   (类似C)
+	2. ### 字符串  
+		* C-风格的字符串(暂时省略)
+		1. **拼接字符串常量**  
+		   以下语句是等价的:  
+		   `cout << "I'd give my right arm to be" " a great violinist.\n";`  
+		   `cout << "I'd give my right arm to be a great violinist.\n";`  
+		   `cout << "I'd give my right ar"`  
+		   `"m to be a great violinist.\n";`  
+		2. **在数组中使用字符串**  
+		   有两种办法:将数组初始化为字符串常量,将建盘或文件输入读入到数组中.  
+		   ```Cpp
+		   #include <iostream>
+		   #include <cstring>	//for the strlen() function
+		   int main()
+		   {
+		      uising namespace std;
+		      const int size = 15;
+		      char name1[size];
+		      char name2[size] = "C++owboy";
+		      cout << "Howdy! I'm " << name2;
+		      cout << "! What's your name?\n";
+		      cin >> name1;
+		      cout << "Well, " << name1 << ", your name has ";
+		      cout << strlen(name1) << " letters and is stored\n";
+		      cout << "in an array of " << sizeof(name1) << "bytes.\n";
+		      cout << "Your initial is " << name1[0] << ".\n";
+		      name2[3] = '\0';
+		      cout << "Here are the first 3 characters of my name: ";
+		      cout << name2 << endl;
+		      return 0;
+		   }
+		   
+		   output:
+		   Howdy! I'm C++owboy! What's your name?
+		   **Basicman**
+		   Well, Basicman,your name has 8 letters and is stored
+		   in an array of 15 bytes.
+		   Your initial is B.
+		   Here are the first 3 characters of ma name: C++.
+		   ```
+		   在该程序中strlen()函数返回储存在数组中字符串的长度并且不把空子符计算在内.在输出字符串时遇到空字符就停止.  
+		3. **字符串输入**  
+		   但前面的程序存在一个缺陷.  
+		   ```Cpp
+		   #include <iostream>
+		   int main()
+		   {
+		      using namespace std;
+		      const int arsize = 20;
+		      char name[arsize];
+		      char dessert[arsize];
+		      cout << "Enter your name:\n";
+		      cin >> name;
+		      cout << "Enter your favorite dessert:\n";
+		      cin >> dessert;
+		      cout << name << " like " << dessert << " .\n";
+		      
+		      output:
+		      Enter your name:
+		      **Alistair Dreeb**
+		      Enter your favorite dessert:
+		      Alistair like Dreeb.
+		      ```
+		      我们甚至没有对输入甜点的提示作出反应,程序便显示了出来,然后立即显示最后一行.因为cin使用空白(空格,制表符和换行符)来确定字符串结束的位置,所以cin读取字符时只读取一个单词.读取后,cin将该字符放到数组中,并在结尾自动添加空字符.  
+		4. **每次读取一行字符串输入**  
+			1. 面向行的输入: getline()  
+			getline()函数读取整行,使用通过回车键输入的换行符来确定输入结尾.调用这种方法,可以使用cin.getline().该函数中有两个参数,第一个是存储输入行的数组的名称,第二个是要读取的字符数(包括空字符).例:`cin.getline(name,20)；`  
+			```Cpp
+		   #include <iostream>
+		   int main()
+		   {
+		      using namespace std;
+		      const int arsize = 20;
+		      char name[arsize];
+		      char dessert[arsize];
+		      cout << "Enter your name:\n";
+		      cin.getline(name,arsize);
+		      cout << "Enter your favorite dessert:\n";
+		      cin.getline(dessert,arsize);
+		      cout << name << " like " << dessert << " .\n";
+		      
+		      output:
+		      Enter your name:
+		      **Alistair Dreeb**
+		      Enter your favorite dessert:
+		      **Radish Torte**
+		      Alistair Dreeb like Radish Torte.
+		      ```
+		      getline()函数通过换行符来确定行尾,但不保存换行符,而用空字符来替换换行符.
+		      2. 面向行的输入:get() 
+		         与getline()不同的是,get虽然通过换行符来判断是否结束,但是不再读取并丢弃换行符,而是将其留在输入队列中.  
+			 `cin.get(name,15);`  
+			 `cin.get(dessert,15);`  
+			 在这种情况下,第二次调用时看到的第一个字符便是换行符,认为以到达行尾.  
+			 因此可以在这两个语句中间加上不带任何参数的cin.get()来读取换行符.
+			 或者可以用`cin.get(name,15).get();`将两个类成员函数拼接起来.同样的cin.getline()也可如此使用.
+			3. 空行和其他问题(暂时省略)
+		5. **混合输入字符串和数字**  
+		   ```Cpp
+		   #include <iostream>
+		   int main()
+		   {  
+		      uisng namespace std;
+		      cout << "What year was your house built?\n";
+		      int year;
+		      cin >> year;
+		      cout << "What is its street address?\n";
+		      char address[80];
+		      cin.getline(address,80);
+		      cout << "Year built: " << year << endl;
+		      cout << "Address: " << address << endl;
+		      cout << "Done!\n";
+		      return 0;
+		   }
+		   
+		   output:
+		   What year was your house built?
+		   **1966**
+		   What is its street address?
+		   Year built: 1966;
+		   Address
+		   Done!
+		   ```
+		   用户根本没有输入地址的机会.因为在读取年份时,回车键产生的换行符留在了输入队列中.后面的get.getline()将认为是一个空行.因此在cin >> year；之后加上cin.get()或(cin >> year).get()；
+	3. ### string类简介  
+	   
+			 
+			
 	   
 	
 	      
