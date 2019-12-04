@@ -42,8 +42,8 @@ categories: programming
         ​如果使用iostream,而不是iostream.h,则应该在函数体中使用下面的名称空间编译指令来使iostream中的定义对程序有用:`using namespace std;`
 
         eg:  
-          `Microflop::wanda("go dasncing?");     //use Microflop namespace version      
-	   Piscine::wanda("fish named Desie");    //use Piscine namespace version`   
+          `Microflop::wanda("go dasncing?");     // use Microflop namespace version      
+	   Piscine::wanda("fish named Desie");    // use Piscine namespace version`   
    
         这两种情况是两个以封装好的产品包含一个名字相同的函数,运用名称空间可以区分不同的版本.
  因此定义在iostream中的用于输出的cout变量实际上是std::cout,为了在每次输得时候省略名称空间,在主程序前加上  using namespace std;
@@ -68,7 +68,7 @@ categories: programming
 	 	 	int carrots;
 	  		 carrots = 25;
 	  		cout << "I have ";
-	 			 cout << carrots;    //display the value to the variable
+	 			 cout << carrots;    // display the value to the variable
 	  		cout << " carrots.";
 	  		cout <<endl;
 	 			 carrots = carrots - 1;
@@ -105,7 +105,7 @@ categories: programming
 	     	using namespace std;
 			int carrots;
 			cout << "How many carrots do you have?" << endl;
-			cin >> carrots;		//C++ input
+			cin >> carrots;		// C++ input
 			cout << "Here are two more. ";
 			carrots = carrots +2;
 			cout << "Now you have " << carrots << "carrots." << endl;
@@ -153,12 +153,12 @@ categories: programming
 		   (这两节参考C语言,暂省略)  
 		   C++有C语言没有的初始化语法  
 		   `int owls = 101；		// traditional C initialization, sets owls to 101 `
-		   `int werns(142)；	//alternative C++ syntax,set werns to 432`
+		   `int werns(142)；	// alternative C++ syntax,set werns to 432`
 		   `int hamburgers = {24};  // set hamburgers to 24`  
-		   `int emus{7;	//set emus to 5`  
+		   `int emus{7;	// set emus to 5`  
 		   `int rheas = {12}; // set rheas to 12`  
-		   `int rocs = {};	//set rocs to 0`  
-		   `int psychis{};	//set psychis to 0`  
+		   `int rocs = {};	// set rocs to 0`  
+		   `int psychis{};	// set psychis to 0`  
 		4. **无符号类型**  
 		   在这讨论超越限制的情况.[image](~/leolanger/图片/Screenshot_20191129_215530.png)
 		5. **选择整型类型**  
@@ -169,8 +169,8 @@ categories: programming
 		   int main()
 		   {
 		      using namespace std;
-		      int chest = 42;	//decimal integer literal
-		      int waist = 0x42;	//hexadecimal integer literal
+		      int chest = 42;	// decimal integer literal
+		      int waist = 0x42;	// hexadecimal integer literal
 		      int inseam = 042;	// octal integer literal
 		      cout << "Monsieur cuts a striking figure!\n";
 		      cout << "chest = " << chest << : (42 in decimal)\n";
@@ -197,9 +197,9 @@ categories: programming
 		      int inseam = 42;	
 		      cout << "Monsieur cuts a striking figure!\n";
 		      cout << "chest = " << chest << : (decimal for 42)\n";
-		      cout << hex;	//manipulator for changing number base
+		      cout << hex;	// manipulator for changing number base
 		      cout << "waist = " << waist << " (hexadecimal for 42)\n";
-		      cout << oct;	//manipulator for changing number base
+		      cout << oct;	// manipulator for changing number base
 		      cout << "inseam = " << inseam << " (octal for 42)\n";
 		      return 0;
 		   }
@@ -240,8 +240,8 @@ categories: programming
 	 	  int main( )
 	 	  {
 	  	    using namespace std;
-	    	  char ch ='M';	//assign ASCII code for M to ch.
-	    	  int i = ch;	//store same code in an int.
+	    	  char ch ='M';	// assign ASCII code for M to ch.
+	    	  int i = ch;	// store same code in an int.
 	    	  cout << "The ASCII code for " << ch << " is " << i << endl;
 	    	  //using the cout.put() member function to display a char
 	    	  cout << "Displaying a char ch using cout.put(ch): ";
@@ -261,12 +261,12 @@ categories: programming
 		  在计算中其值可以是true或false.
 		  `bool is_ready = true；`  
 		  字面值true和false可以转化为int类型,true转换为1,false转换为0.  
-		  `int ans = true;	//ans assigned 1`  
+		  `int ans = true;	// ans assigned 1`  
 		  任何数字值和指针值都可以被隐式转换为bool值.零值为false,其余为true.  
 	2. ### const限定符  
 	   应在声明中就对const进行初始化.以下代码不好:  
 	   `const int toes；`  
-	   `toes = 10；	//too late`  
+	   `toes = 10；	// too late`  
 	   这种情况,常量的值不确定,且无法修改.  
 	   (暂时省略)
 	3. ### 浮点数
@@ -413,14 +413,89 @@ categories: programming
 		   Done!
 		   ```
 		   用户根本没有输入地址的机会.因为在读取年份时,回车键产生的换行符留在了输入队列中.后面的get.getline()将认为是一个空行.因此在cin >> year；之后加上cin.get()或(cin >> year).get()；
-	3. ### string类简介  
-	   
-			 
-			
-	   
-	
+	 3. ### string类简介
+	  	* C++添加了string类型的变量,来储存字符串.string类型变量包含在头文件string中.   
+	  	```Cpp
+	  	#include <iostream>
+	  	#include <string>
+	 	 int main()
+	 	 {
+	  	    using namespace std;
+	 	    char charr1[20];
+	  	    char charr2[20] = "jaugar";
+	   	    string str1;
+	   	    string str2 = "panther";
+	   	    cout << "Enter a kind of feline: ";
+	        cin >> charr1;
+	   	    cout << "Enter another kind of feline: ";
+	        cin >> str1;
+	        cout << "Here are some felines:\n";
+	        cout << charr1 << " " << charr2 << " " << str1 << " " << str2 << endl;
+	        cout << "The third letter in " << charr2 << " is " << charr2[2] << endl;
+	        cout << "The third letter in " << str2 << " is " << str2[2] << endl;
+	        return 0;
+	      }
 	      
+	        output:
+	        Enter a kind of feline: **ocelot**
+	        Enter another kind of feline: **tiger**
+	        Here are some felines:
+	        ocelot jaguar tiger panther
+	        The third letter in jaguar is g
+	        the third letter in panther is n
+	    ```
+	 	 可以用C风格字符串来初始化string对象；可以用cin来键盘输入储存到string对象中；可以用cout来显示string对象；可以使用数组表示法来访问存储在string对象中的字符.  
+	  主要区别是可以将string对象声明为简单变量而不是数组. 
+	  	1. **C++11字符串初始化**  
+		   允许使用列表初始化.
+		2. **赋值,拼接和附加**  
+		   有些操作string类比数组更简单,例不能将一个数组赋给另一个数组,但可以将一个string对象赋给另一个string对象.  
+		   同样对于字符串的合并可以使用'+'将两个string对象合并起来,也可以使用'+='将字符串附加到string对象的末尾.
+		3. **string类的其他操作**  
+		   在C++中可以用size()这个成员函数来计算字符串大小,用法:`int len1 = str1.size()；	// 计算str1的大小`  
+		   赋值,合并的用法上一小节讲过,另外在合并过程中string类具有自动调整大小的功能.
+		4. **string类 I/O**  
+		   读取一行而不是一个单词时,使用的句法不同.
+		   ```Cpp
+		   #include <iostream>
+		   #include <string>
+		   #include <cstring>
+		   int main()
+		   {
+		      using namespace std;
+		      char charr[20];
+		      string str;
+		      cout << "Length of string in charr before input: " << strlen(charr) << endl;
+		      cout << "Length of string in str before input: " << str.size() << endl;
+		      cout << "Enter a line of text:\n"
+		      cin.getline(charr,20);
+		      cout << "You entered: " << charr <endl;
+		      cout << "Enter antohr line of text: \n";
+		      getlinr(cin,str);
+		      cout << "You entered: " << str << endl;
+		      cout << "Length of string in charr after input: " << strlen(charr) << endl;
+		      cout << "Length of string instr after input: " << str.size() << endl;
+		      return 0;
+		   }
+		   
+		   output:
+		   "Length of string in charr before input: 27
+		   "Length of string in charr before input: 0
+		   Enter a line of text
+		   **peanut butter**
+		   You entered: peanut butter
+		   Enter another line of text:
+		   **blueberry jam**
+		   You entered: blueberry jam
+		   Length of string in charr after input: 13
+		   Length of string in str after input:13
+		   ```
+		   程序说明:再输入前,数组charr中字符串的长度为27,是因为未初始化的数组的内容是随机的,并且strlen计算到空字符为止.而未被初始化string对象长度被自动设置为0.  
+		   将一行输入读取到数组中的代码,在这不多说了.而将一行输入读取到string对象中的代码:`getline(cin,str)；`这里没有句点表示法,表明这个getline()不是类方法.它将cin作为参数,指出到哪里去查找输入.另外,因为string对象将按字符串长度自动调整自己的大小,所以没有长度参数.  
+		5. **其他形式的字符串字面值**  
+		   (暂时省略)
+	4. ### 结构简介
+	  
 	 
-	
 	
 
