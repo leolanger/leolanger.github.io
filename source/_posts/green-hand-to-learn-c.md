@@ -494,7 +494,54 @@ categories: programming
 		   将一行输入读取到数组中的代码,在这不多说了.而将一行输入读取到string对象中的代码:`getline(cin,str)；`这里没有句点表示法,表明这个getline()不是类方法.它将cin作为参数,指出到哪里去查找输入.另外,因为string对象将按字符串长度自动调整自己的大小,所以没有长度参数.  
 		5. **其他形式的字符串字面值**  
 		   (暂时省略)
-	4. ### 结构简介
+	4. ### 结构简介(即结构体)  
+		* 在C++中关键字struct可以省略.
+		1. **在程序中使用结构体**
+		   ```Cpp
+		   #include <iostream>
+		   struct inflatable 	// structure declaration
+		   {
+		      char name[20];
+		      float volume;
+		      double price;
+		   };
+		   int main()
+		   {
+		      using namespace std;
+		      inflatable guest =
+		      {
+		         "Glorious Gloria",
+			     1.88,
+			     29.99
+		      };
+		      inflatable pal = 
+		      {
+		         "Audacious Arthur",
+			     3.12,
+			     32.99
+		      };
+		       cout << "Expand your guest list with " << guest.name;
+		       cout << " and " << pal.name << "!\n";
+		       cout << "Your can have both for $";
+		       cout << guest.price + pal.price << "!\n";
+		       return 0;
+		   }
+		   
+		   output:
+		   Expand your guest list which Glorious Gloria and Audacious Arthur!
+		   You can have both for $62.98!
+		   ```
+		   (因与C类似,暂时省略)
+		2. **C++11结构初始化**  
+		   支持列表初始化用于结构体.
+		3. **结构体可以将string类作为成员**
+		4. **其他结构属性**  
+		   可以将结构体作为参数传递给函数(结构体相当于一个新的数据类型).另外可以用赋值运算符( = )将结构体赋给另一个同类型的结构体,即使成员是数组.
+		5. **结构数组**(与C类似,暂时省略)
+		6. **结构体中的位字段**  
+		   (与C类似 )
+	5. ### 共用体
+		   
 	  
 	 
 	
