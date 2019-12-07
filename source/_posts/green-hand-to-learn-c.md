@@ -342,28 +342,28 @@ categories: programming
 		4. **每次读取一行字符串输入**  
 			1. 面向行的输入: getline()  
 			getline()函数读取整行,使用通过回车键输入的换行符来确定输入结尾.调用这种方法,可以使用cin.getline().该函数中有两个参数,第一个是存储输入行的数组的名称,第二个是要读取的字符数(包括空字符).例:`cin.getline(name,20)；`  
-			```Cpp
-		   #include <iostream>
-		   int main()
-		   {
-		      using namespace std;
-		      const int arsize = 20;
-		      char name[arsize];
-		      char dessert[arsize];
-		      cout << "Enter your name:\n";
-		      cin.getline(name,arsize);
-		      cout << "Enter your favorite dessert:\n";
-		      cin.getline(dessert,arsize);
-		      cout << name << " like " << dessert << " .\n";
+				```Cpp
+		   		#include <iostream>
+		   		int main()
+		   		{
+		    	    using namespace std;
+		     	    const int arsize = 20;
+		     	    char name[arsize];
+		     	    char dessert[arsize];
+		     	    cout << "Enter your name:\n";
+		     	    cin.getline(name,arsize);
+		     	    cout << "Enter your favorite dessert:\n";
+		     	    cin.getline(dessert,arsize);
+		     	    cout << name << " like " << dessert << " .\n";
 		      
-		      output:
-		      Enter your name:
-		      **Alistair Dreeb**
-		      Enter your favorite dessert:
-		      **Radish Torte**
-		      Alistair Dreeb like Radish Torte.
-		      ```
-		      getline()函数通过换行符来确定行尾,但不保存换行符,而用空字符来替换换行符.
+		    	    output:
+		     	    Enter your name:
+		     	    **Alistair Dreeb**
+		     	    Enter your favorite dessert:
+		   	        **Radish Torte**
+		     	    Alistair Dreeb like Radish Torte.
+		   	    ```
+		     	 getline()函数通过换行符来确定行尾,但不保存换行符,而用空字符来替换换行符.
 		      2. 面向行的输入:get() 
 		         与getline()不同的是,get虽然通过换行符来判断是否结束,但是不再读取并丢弃换行符,而是将其留在输入队列中.  
 			 `cin.get(name,15);`  
@@ -373,7 +373,7 @@ categories: programming
 			 或者可以用`cin.get(name,15).get();`将两个类成员函数拼接起来.同样的cin.getline()也可如此使用.
 			3. 空行和其他问题(暂时省略)
 		5. **混合输入字符串和数字**  
-		   ```Cpp
+		 	  ```Cpp
 		   #include <iostream>
 		   int main()
 		   {  
@@ -401,26 +401,26 @@ categories: programming
 		   用户根本没有输入地址的机会.因为在读取年份时,回车键产生的换行符留在了输入队列中.后面的get.getline()将认为是一个空行.因此在cin >> year；之后加上cin.get()或(cin >> year).get()；
 	 3. ### string类简介
 	  	* C++添加了string类型的变量,来储存字符串.string类型变量包含在头文件string中.   
-	  	```Cpp
-	  	#include <iostream>
-	  	#include <string>
-	 	 int main()
-	 	 {
-	  	    using namespace std;
-	 	    char charr1[20];
-	  	    char charr2[20] = "jaugar";
-	   	    string str1;
-	   	    string str2 = "panther";
-	   	    cout << "Enter a kind of feline: ";
-	        cin >> charr1;
-	   	    cout << "Enter another kind of feline: ";
-	        cin >> str1;
-	        cout << "Here are some felines:\n";
-	        cout << charr1 << " " << charr2 << " " << str1 << " " << str2 << endl;
-	        cout << "The third letter in " << charr2 << " is " << charr2[2] << endl;
-	        cout << "The third letter in " << str2 << " is " << str2[2] << endl;
-	        return 0;
-	      }
+	  		```Cpp
+	  		#include <iostream>
+	  		#include <string>
+	 		 int main()
+	 		 {
+	  		    using namespace std;
+	 		    char charr1[20];
+	  		    char charr2[20] = "jaugar";
+	   		    string str1;
+	   	        string str2 = "panther";
+	   	 	    cout << "Enter a kind of feline: ";
+	            cin >> charr1;
+	   	  	    cout << "Enter another kind of feline: ";
+	      	    cin >> str1;
+	      	    cout << "Here are some felines:\n";
+	       	    cout << charr1 << " " << charr2 << " " << str1 << " " << str2 << endl;
+	      	    cout << "The third letter in " << charr2 << " is " << charr2[2] << endl;
+	       	    cout << "The third letter in " << str2 << " is " << str2[2] << endl;
+	      	    return 0;
+	         }
 	      
 	        output:
 	        Enter a kind of feline: **ocelot**
@@ -429,8 +429,8 @@ categories: programming
 	        ocelot jaguar tiger panther
 	        The third letter in jaguar is g
 	        the third letter in panther is n
-	    ```
-	 	 可以用C风格字符串来初始化string对象；可以用cin来键盘输入储存到string对象中；可以用cout来显示string对象；可以使用数组表示法来访问存储在string对象中的字符.  
+	   		 ```
+	 		 可以用C风格字符串来初始化string对象；可以用cin来键盘输入储存到string对象中；可以用cout来显示string对象；可以使用数组表示法来访问存储在string对象中的字符.  
 	  主要区别是可以将string对象声明为简单变量而不是数组. 
 	  	1. **C++11字符串初始化**  
 		   允许使用列表初始化.
@@ -545,9 +545,400 @@ categories: programming
 		3. **指针和数字**  
 		   不能将一个整数赋给指针,需要进行强转.
 		4. **使用new来分配内存**  
+			前面我们将指针初始化为变量的地址：变量是在编译时分配的有名称的内存，而指针只是为可以通过名称直接访问的内存提供的一个别名。指针真正的用武之地在于，在运行阶段分配未命名的内存以存储值。在这种情况下只能以指针来访问内存。在C语言中，可以用malloc()来分配内存；在C++中也可以这么做，但C++还有更好的选择--new运算符。  
+			`int *pn = new int;`这表示：在运行阶段，为一个int分配分配未命名的内存，并用指针来访问这个值。程序员告诉为int类型分配内存；而new将找到一个长度正确的内存块，并返回地址。接下来将地址赋给pn，pn是被声明为指向int的指针。  
+			术语“数据对象”比“变量”更通用，它指的是为数据分配的内存块。因此变量也是数据对象，但pn指向的内存不是变量。为一个数据对象（可以是结构，也可以是基本类型）获得并指定分配内存的通用格式如下：  
+			`typeName * pointer_name = new typeName;`  
+			```Cpp
+			#include <iostream>
+			int main()
+			{
+			    using namespace std;
+			    int nights = 1001;
+			    int * pt = new int;    // allocate space for an int
+			    *pt = 1001;	     // store a value there
+			    cout << "nights value = ";
+			    cout << nights << ": location " << &nights << endl;
+			    cout << "int ";
+			    cout << "value = " << *pt << " : location = " << pt << endl;
+			    double * pd = new double;
+			    *pd = 10000001.0;
+			    cout << "double ";
+			    cout << "value = " << *pd << " : location = " << pd << endl;
+			    cout << "location of pointer pd: " << &pd << endl;
+			    cout << "size of pt = " << sizeof(pt);
+			    cout << ": size of *pt = " << sizeof(*pt) << endl;
+			    cout << "size of pd = " << sizeof(pd);
+			    cout << ": size of *pd = " << sizeof(*pd) << endl;
+			    return 0;
+			}
+			
+			output:
+			nights value = 1001: location 0028F7F8
+			int value = 1001: location = 00033A98
+			double value = 1e+007: location = 000339B8
+			location of pointer pd: 0028F7FC
+			size of pt = 4: size of *pt = 4
+			size of pd = 4: size of *pd = 8
+			```
+			当然，内存位置的准确值随系统而异。  
+			程序说明：  
+			该程序使用new分别为int类型和double类型的数据对象分配内存，这是程序运行时进行的。  
+			对于指针，需要另外指出，变量nights和pd的值都存储在栈里，而new从堆例分配内存。  
+		5. **使用delete释放内存**  
+		   	当new申请的内存使用完后，需要用delete运算符释放内存。使用示例：  
+			```Cpp
+			int * ps = new int;
+			······
+			delete ps;
+			```
+			这将释放ps指向的内存，但不惠删除ps本身，可以将ps重新指向另一个新分配的内存。另外，一定要配对的使用new和delete，否则会发生内存泄漏。另外不能用得了特来释放声明变量（即不是new）所获得的内存。  
+		6. **使用new来创建动态数组**  
+		   如果通过声明来创建数组，则在程序 被编译时将为它分配内存空间，不管最终是否使用数组，数组都在那，占用了内存，这种方式叫做静态联编。但使用new，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组长度，这被称为动态联编。  
+		   	1. *使用new创建动态数组*  
+			   创建动态数组，只要将数组的元素类型和元素数目告诉new即可。如果想创建一个包含10个int元素的数组，可以这样做：  
+			   `int * psome = new int [10];`  
+			   new运算符返回第一个元素的地址。在这个例子中，该地址被赋给指针psome。  
+			   当使用完new分配的内存块时，应使用delete释放他们。对于new创建的数组，应使用另一种格式：  
+			   `delete [] psome;`  
+			   方括号告诉程序，应释放整个数组，而不仅仅是指针指向的元素。  
+			   总之，使用new和delete时，应遵循以下规则：  
+			   	* 不要使用delete来释放不是new分配的内存。
+				* 不要使用delete释放同一个内存两次（特别注意在用两个指针指向同一块内存的情况）。
+				* 如果使用new[]为数组分配内存，则应使用delete[]来释放。
+				* 如果使用new[]为一个实体分配内存，则应使用delete（没有方括号）来释放。
+				* 对空指针应用delet是安全的。
+			2. *使用动态数组*  
+				方法一：把指针当作数组名使用即可。
+				```Cpp
+				#include <iostream>
+				int main()
+				{
+				   using namespace std;
+				   double * p3 = new double[3];
+				   p3[0] = 0.2;
+				   p3[1] = 0.5;
+				   p3[2] = 0.8;
+				   cout << "p3[1] is " << p3[1] << ".\n";
+				   p3 = p3 + 1;
+				   cout << "Now p3[0] is " << p3[0] << " and ";
+				   cout << "p3[1] is " << p3[1] << ".\n";
+				   p3 = p3 -1;
+				   delete [] p3;
+				   return 0;
+				}
+				
+				output:
+				p3[1] is 0.5.
+				Now p3[0] is 0.5 and p3[1] is 0.8.
+				```
+				从这可以看数，数组名和指针之间的根本差别：  
+				`p3 = p3 + 1；`  
+				不能修改数组名的值（因为数组名是地址常量），但指针是变量。p3加1的效果就是将指向该数组的下一个元素。
+		
+	8. ### 指针、数组和指针算数  
+		指针和数组基本等价的原因在于指针算数和C++内部处理数组的方式。首先，看一下算数，将整数变量加1后，其值将增加1；但将指针变量增加1后，增加的量等于它指向的类型的字节数。
+		```Cpp
+		#include <iostream>
+		int main()
+		{
+		    using namespace std;
+		    double wages[3] = {10000.0, 20000.0, 30000.0};
+		    short stacks[3] = {3, 2, 1};
+		    // Here are two ways to get the adress of an array
+		    double * pw = wages;
+		    short * ps = &stacks[0];
+		    cout << "pw = " << pw << ", *pw = " << *pw << endl;
+		    pw = pw + 1;
+		    cout << "add 1 to the pw pointer:\n";
+		    cout << "pw = " << pw << ", *pw = "<< *pw << "\n\n";
+		    cout << "ps = " << ps << ", *ps = " << *ps << endl;
+		     ps = ps + 1;
+		    cout << "add 1 to the ps pointer:\n";
+		    cout << "ps = " << ps << ", *ps = "<< *ps << "\n\n";
+		    cout << "access two elements with array notation\n";
+		    cout << "stacks[0] = " << stacks[0] << ",stacks[1] = " << stacks[1] << endl;
+		    cout << "access two elements with pointer notation\n";
+		    cout << "*stacks = " << *stacks << ",*(stacks + 1) = " << *(stacks + 1) << endl;
+		    cout << sizeof(wages) << " = size of wages array\n";
+		    cout << sizeof(pw) << " = size of pw pointer\n";
+		    return 0;
+		 }
+		 
+		 output:
+		 pw = 0x28ccf0, *pw = 10000
+		 add 1 to the pw pointer:
+		 pw = 0x28ccf8, *pw = 20000
+		 
+		 ps = 0x28ccea, *ps = 3
+		 add 1 to the ps pointer:
+		 ps = 0x28ccec, *ps = 2
+		 
+		 acces two elements with array notation
+		 stacks[0] = 3,stacks[1] = 2
+		 access two elements with pointer notation 
+		 *stacks = 3,*(stacks + 1) = 2
+		 24 = size of wages array
+		 4 = size of pw pointer
+		 ```
+		1. **程序说明**  
+			数组名相当于第一个元素的地址。
+		2. **指针小结**  
+		   	1. *声明指针*
+			2. *给指针赋值*
+			3. *对指针解除引用*
+			4. *区分指针和指针所指向的值*
+			5. *数组名*
+			6. *指针算数*
+			7. *数组的动态联编和静态联编*
+			8. *数组表示法和指针表示法*
+		3. **指针和字符串**
+			```Cpp
+			#include <iostream>
+			#include <cstring>
+			int main()
+			{
+			    using namespace std;
+			    char animal[20] = "bear";
+			    const char * bird = "wear";
+			    char * ps;
+			    cout << animal << " and ";
+			    cout << bird << "\n";
+			    cout << Enter a kind of animal: "
+			    cin >> animal;
+			    ps = animal;
+			    cout << ps << "!\n";
+			    cout << "Before using strcpy():\n";
+			    cout << "animal << " at " << (int *)animal << endl;
+			    cout << ps << "at " << (int *) ps << endl;
+			    ps = new char[strlen(animal) + 1];
+			    strcpy(ps, animal);
+			    cout << "After using strcpy():\n";
+			    cout << animal << " at " << (int *) animal << endl;
+			    cout << ps << " at " << (int *) ps << endl;
+			    delete [] ps;
+			    return 0;
+			}
+			
+			output:
+			bear and wren
+			Enter a kind of animal: **fox**
+			fox!
+			Before using strcpy():
+			fox at 0x0065fd30
+			fox at 0x0065fd30
+			After using strcpy():
+			fox at 0x0065fd30
+			fox at 0x004301c8
+			```
+	   		* 程序说明（暂时省略）
+		4. **使用new创建动态结构**  
+		   	需要在程序运行时为结构分配所需的空间，也可以使用new运算符来完成。通过使用new，可以创建动态结构体。由于类与结构体非常相似，因此有关结构体的技术也适用于类。  
+			例如，要创建一个未命名的inflatable类型，并将其地址赋给一个指针，可以这样做：  
+			`inflatable * ps = new inflatable;`  
+			比较棘手的是访问成员。创建动态结构体时，不能将成员运算符句点用于结构名，因为这种结构体没有名称，只是知道它的地址。此时应用箭头成员运算符（->)。另一种访问结构体成员的方法就是(*ps).price.
+			1. *一个使用new和delete的示例*  
+			   ```Cpp
+			   #include <iostream>
+			   #include <cstring>
+			   using namespace std;
+			   char * getname(void);
+			   int main()
+			   {
+			       char * name;
+			       name = getname();
+			       cout << name << " at " << (int *) name << "\n";
+			       delete [] name;
+			       name = getname();
+			        cout << name << " at " << (int *) name << "\n";
+			       delete [] name;
+			       return 0;
+			   }
+			   char  * getname()
+			   {
+			       char temp[80];
+			       cout << Enter last name: ";
+			       cin >> temp;
+			       char * pn = new char[strlen(temp) + 1];
+			       strcpy(pn,temp);
+			       return pn;
+			   }
+			   
+			   output:
+			   Enter last name: Fredelddumpkin
+			   Fredelddumpkin AT 0x004326b8
+			   Enter last name: Pook
+			   Pook at 0x004301c8
+			   ```
+			2. *程序说明*  
+			        在getname()函数中,使用cin讲输入的单词放到temp数组中,然后使用new分配新内存,以存储该单词.
+		5. **自动存储,静态存储和动态存储**  
+			1. *自动存储*  
+			   	(类似C的自动变量,自动变量通常存储在栈中)
+			2. *静态存储*  
+			   	使变量成为静态的方法有两种:一种是在函数外面定义它；另一种是在声明变量时使用关键字static:  
+				`static double fee = 56.50;`  
+			3. *动态存储*  
+			   	new和delete运算符提供了一种更灵活的方法.它们管理一个内存池,被称为自由存储空间或堆.且数据的生命周期不完全受程序和函数的生存时间控制.
+	9. ### 类型组合  
+	   	```Cpp
+		#include <iostream>
+		struct antarctica_years_end
+		{
+		    int year;
+		}
+		int main()
+		{
+		    antarctica_years_end s01, s02, s03;
+		    s01.year = 1998;
+		    antarctica_years_end * pa = &s02;
+		    pa->year = 1999;
+		    antarctica_years_end trio[3];
+		    trio[0].year = 2003;
+		    std::cout << trio->year << std::endl;
+		    const antarctica_years_end * arp[3] = {&s01, &s02, &s03};
+		    std::cout << arp[1]->year << std::endl;
+		    const antarctica_years_end **ppa = arp;
+		    auto ppb = arp;
+		    std::cout << (*ppa)->year << std::endl;
+		    std::cout << (*(pbb+1))->year << std::endl;
+		    return 0;
+		 }
+		 
+		 output:
+		 2003
+		 1999
+		 1998
+		 1999
+		 ```
+		 * 程序说明  
+		    可以创建这种类型的变量:
+		    `antarctica_years_end s01, s02, s03;`    
+		    然后使用成员运算符访问其成员:
+		    `s01.year = 1998;`  
+		    结构体的指针:
+		    `antarctica_years_end * pa = &s02;`  
+		    将该指针设置为有效地址后,可以使用间接成员运算符来访问成员:
+		    `pa->year = 1999;`  
+		    创建结构体数组:
+		    `antarctica_years_end trio[3];`  
+		    使用成员运算符访问元素的成员:
+		    `trio[0].year = 2003;`  
+		    其中trio是一个数组,trio[0]是一个结构体,而trio[0].year是该结构体的一个成员.由于数组名是一个指针,因此也可以这样用:
+		    `(trio+1)->year = 2003;  // same as trio[1].year = 2003;`  
+		    创建指针数组:
+		    `const antarctica_years_end * arp[3] = {&s01, &s02, &s03};`   
+		    arp是一个指针数组,arp[1]就是一个指针,可以使用间接成员运算符来访问成员:
+		    `std::cout << arp[1]->year << std::endl;`    
+		    创建指向上述数组的指针:
+		    `const antarctica_years_end **ppa = arp;`    
+		    arp是一个数组的名称,因此它是第一个元素的地址,并且其第一个元素为指针,因此ppa是一个双重指针--指向一个指向const antarctica_years_end 的指针:
+		    `std::cout << (*ppa)->year << std::endl;`    
+		    但上面的办法很容易搞错,因此可以使用auto,编译器知道arp的类型,能够正确的推断出ppb的类型:
+		    `auto ppb = arp;`  
+		    `std::cout << (*(pbb+1))->year << std::endl;` 
+	10. ### 数组的替代品
+		1. **模板类vector**
+			模板类vector类似于string类,也是一种动态数组.可以在运行阶段设置vector对象的长度,可在末尾附加新数据,还可在中间插入新数据.  
+			这里只介绍一些基本的实用知识.首先,使用vector对象,必须包含头文件vector；其次,vector包含在名称空间std中.  
+			```Cpp
+			#include <vector>
+			* * *
+			using namespace std;
+			vector<int> vi;
+			int n;
+			cin >> n;
+			vector<double> vd(n);
+			```
+			其中,vi是一个vector<int>对象,vd是一个vector<double>对象.由于vector对象在插入或添加值时自动调整长度,因此可以先将长度设置为零,如要调长度需使用vector包中的方法(暂时省略).  
+			一般而言,创建一个名为vt的vector对象,可存储出n个类型为typename的元素的示例:
+			`vector<typename> vt(n);`  
+		2. **模板类array**  
+		   	vector功能强大,但是效率低下.因此新增类模板类array,它的长度固定,使用栈,效率与数组相同,但更方便,更安全.想使用array需要包含头文件array.  
+			下面的声明创建一个名为arr的array对象,包含n个类型为typename的元素:`array<typename,n> arr;`  
+		3. **比较数组,vector对象和array对象**  
+		   	数组在编写是有可能产生数组越界如:a[-1].vector和array也可以编写不安全的代码,但是可以使用成员函数at(),用于捕获非法索引.它们还包含begin()和end(),来确定边界,以免无意间越界.(在之后讨论)
+4. ## 循环和关系表达式  
+	1. ### for循环  
+	   (与C相似部分省略)
+		1. **for循环的组成部分**  
+		   	1. *表达式和语句*  
+			   	C++每个表达式都有值:28 *20 是值为560的表达式；x = 20 是值为20 的表达式；maids = (cooks = 3) + 4,表达式cooks = 3的值为3,因此maids的值是7；x<y将被判定为bool值true或false.  
+				然而在语句中<<运算符优先级高于算数运算符,所以要使用括号.  
+				从表达式到语句的转变很容易,只要加分号即可.
+			2. *非表达式和语句*  
+				虽然表达式加上分号变成语句,但不代表所有语句去掉分号就是表达式.
+			4. *修改规则*  
+				C++允许在for循环中初始化:`for (int i = 0; i< 5; i++);`这种变量只存在于for语句中.
+		2. *回到for语句*  
+		3. *修改步长*
+		4. *使用for循环访问字符串*
+		5. *递增运算符(++)和递减运算符(--)*
+		6. *副作用和顺序点*
+		7. *前缀格式和后缀格式*
+		8. *递增/递减运算符和指针*
+		9. *组合赋值运算符*
+		10. *复合语句*
+		11. *其他语法技巧---逗号运算符*
+			C++中逗号表达式的值是右半部分的值.
+		12. *关系表达式*
+		13. *赋值,比较和可能犯的错误*
+		14. *C风格字符串的比较*
+		15. *比较string类字符*  
+		    对于C风格的字符串只能用strcmp()进行比较,而string可以用关系运算符即可.
+	2. ### while循环
+		1. **for和while**
+		2. **等待一段时间:编写延时循环**  
+		   	最早期的技术:  
+			```Cpp
+			long wait = 0;
+			while (wait < 10000)
+			    wait++;
+			```
+			但如果计算机处理器的速度过快,必须修改计数限制.  
+			在C++库中,有一个函数clock(),返回程序开始执行后所用的系统时间.但是返回的时间单位不一定是秒,其次返回的数据类型不确定.  
+			在头文件ctime中定义了一个符号常量---CLOCKS_PER_SEC,等于每秒包含的系统时间的单位,其次ctime将clock_t作为clock()返回类型的别名,意味着可以缉拿个变量声明为clock_t类型.
+			```Cpp
+			#include <iostream>
+			#include <ctime>
+			int main()
+			{
+			    using namespace std;
+			    cout << "Enter the delay time,in second: ";
+			    float secs;
+			    cin >> secs;
+			    clock_t delay = secs * CLOCKS_PER_SEC;
+			    cout << "starting\a\n";
+			    clock_t start = clock();
+			    while (clock() - start < delay);
+			    cout << "done\a\n";
+			    return 0;
+			}
+			```
+	3. ### do while循环
+	4. ### 基于范围的for循环(C++11)
+		这简化了一种常见的循环任务:对数组的每个循环执行相同的操作:
+		```Cpp
+		double prices[5] = {4.99, 10.99, 6.87, 7.99, 8.48};
+		for(double x : prices)
+		    cout << x << std::endl;
+		```
+		其中x最初表示数组prices的第一个元素.显示完后,不断执行循环,而x依次表示数组的其他元素.  
+		要修改数组的元素,则需要使用不同的循环变量语法:
+		```Cpp
+		for(double &x : prices)
+		    x = x * 0.80;
+		```
+		符号&表明x是一个引用变量.
+	5. ### 循环和文本输入
+		(暂时省略)
+		1. **使用原始的cin**
+		2. **使用cin.get(char)**
+		3. **使用哪一个cin.get()**
+		4. **文件尾条件**
+		5. **另一个cin.get()**
+	6. ### 嵌套循环和二维数组
 		   
-		   
-	  
-	 
+		  
 	
 
