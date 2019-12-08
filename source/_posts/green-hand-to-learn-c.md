@@ -938,7 +938,69 @@ categories: programming
 		4. **文件尾条件**
 		5. **另一个cin.get()**
 	6. ### 嵌套循环和二维数组
-		   
-		  
-	
+		1. **初始化二维数组**
+		2. **使用二维数组**
+6. ## 分支语句和逻辑运算符
+	1. ### if语句
+		1. **if else语句**
+		2. **格式化if else语句**
+		3. if else if else语句**
+	2. ### 逻辑表达式
+		1. **逻辑OR运算符:||**
+		2. **逻辑AND运算符:&&**
+		3. **用&&来设置取值范围**
+		4. **逻辑NOT运算符:!**
+		5. **逻辑运算符细节**
+	3. ### 字符函数库cctype
+	4. ### ?:运算符
+	5. ### switch语句
+	6. ### break和continue语句
+	7. ### 读取数字的循环
+		假设要编写一个读取数字的程序,而用户输入了一个单词情况将如何?出现这种类型不匹配的情况时,将发生4种情况:
+		* n的值保持不变
+		* 不匹配的输入将被留在输入队列中
+		* cin对象中的一个错误标记被设置
+		* 对cin方法的调用将返回false(如果被转换为bool类型)
 
+		方法返回false意味着可以用非数字输入来接数读取数字的循环.非数字输入设置错误标记意味着必须充值该标记,程序才能继续读取输入,可以用clear()来重置标记.
+		```Cpp
+		#include <iostream>
+		const int MAX = 5;
+		int main()
+		{
+		    using namespace std;
+		    int golf[MAX];
+		    cout << "Please enter your golf scores.\n";
+		    cout << "You must enter " << MAX << " rounds.\n";
+		    int i;
+		    for(i = 0; i < MAX; i++)
+		    {
+		        cout << "round #" << i+1 << ": ";
+			while (!(cin >> golf[i])
+			{
+			    cin.clear();
+			    while (cin.get() !='\n')
+			        continue;
+			    cout << "Please enter a number: ";
+			}
+		    }
+		    double total = 0.0;
+		    for (i = o;i < MAX; i++)
+		        total += golf[i];
+		    cout << total / MAX << " = average score " << Max << " rounds\n";
+		    return 0;
+		}
+		
+		output:
+		Please enter your golf scores.
+		You must enter 5 rounds.
+		round #1: **88**
+		round #2: **87**
+		round #3: **must i?**
+		Please enter a number: **103**
+		round #4: **94**
+		round #5: **86**
+		91.6 = average score 5 rounds
+		```
+	8. ### 简单文件输入/输出
+7. ## 函数---C++的编程模块
