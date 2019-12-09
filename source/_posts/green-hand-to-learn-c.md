@@ -1004,3 +1004,61 @@ categories: programming
 		```
 	8. ### 简单文件输入/输出
 7. ## 函数---C++的编程模块
+	1. ### 复习函数的基本知识
+		1. **定义函数**
+		2. **函数原型和函数调用**
+	3. ### 函数参数和按值传递
+		1. **多个参数**
+		2. **另外一个接受两个参数的函数**
+	3. ### 函数和数组
+		1. **使用数组区间的函数**
+			```Cpp
+			#include <iostream>
+			const int ArSize = 8;
+			int sum_arr(const int * begin, const int * end);
+			int main()
+			{
+			    using namespace std;
+			    int cookies[ArSize] = {1,2,4,8,16,32,64,128};
+			    int sum = sum_arr(cookies, cookies + ArSize);
+			    cout << "Total cookies eaten: " << sum << << " cookies.\n";
+			    sum = sum_arr(cookies, sookies + 3);
+			    cout << "First thre eaters ate " << sum << " cookies.\n);
+			    sum = sum_arr(cookies + 4,cookies + 8);
+			    cout << "Last four eaters ate " << sum << " cookies.\n";
+			    return 0;
+			}
+			    int sum_arr(const int * begin, const int * end)
+			    {
+				const int * pt;
+				int total;
+				for(pt = begin; pt != end; pt++)
+				     total =total + *pt;
+			        return total;
+		       	    }
+				
+			output:
+			Total cookies eaten: 255
+			First thre  eaters ate 7 cookies.
+			Last four eaters ate 240 cookies.
+			```
+			2. **指针和const**   
+				将const用于指针有一些很微妙的地方.可以有两种不同的方式将const关键字用于指针.第一种是让指针指向一个常量对象,这样可以防止使用该指针来修改所指向的值；第二种是将指针本身声明为常量,这样可以防止改变指针指向的值.  
+				* 首先,声明一个指向常量的指针pt:  
+					`int age = 39；`  
+					`const int * pt = &age;`  
+					该声明指出,pt指向一个const int,因此不能用pt来修改这个值,即*pt为常量不能被修改:  
+					`*pt += 1;`  
+					`cin >> *pt;`  
+					这些都是不允许的.  
+					但是有一个很微妙的问题.pt的声明并不意味这它指向的值实际上就是一个常量,而只是对于pt而言是常量.例如上面的情况下,可以直接通过age变量来修改age的值(前提是age本身不是常量).(另外C++进制将const地址赋给非const指针)  
+					再回到之前的声明:  
+					`int age = 39;`  
+					`const int * pt = &age;`  
+					第二个声明只能防止修改pt指向的值,而不能防止修改pt的值,也就是说,可以将一个新地址赋给pt,但仍然不能用pt来修改其值.  
+				* 第二种:使用const的方法时的无法修改指针的值:  
+					  `int sloth = 3;`  
+					  `const int * ps = &sloth;`  
+					  `int * const finger = &sloth;`  
+					  最后一个声明使得finger只能指向sloth,但允许用finger来修改sloth的值.
+	4. ### 函数和二维数组
