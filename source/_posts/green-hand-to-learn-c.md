@@ -1062,3 +1062,83 @@ categories: programming
 					  `int * const finger = &sloth;`  
 					  最后一个声明使得finger只能指向sloth,但允许用finger来修改sloth的值.
 	4. ### 函数和二维数组
+	5. ### 函数和C-风格字符串
+		1. **将C-风格字符串作为参数的函数**  
+			假设要将字符串作为参数传递给函数,则表示字符串的方法有三种:
+			* char数组
+			* 用引号括起的字符串常量
+			* 被设置为字符串地址的char指针
+		
+			可以说将字符串作为参数来传递,但实际传递的是字符串的第一个字符的地址.  
+			C-风格字符串与常规char数组之间的一个重要区别就是,字符串由内置的结束字符.
+		2. **返回C-风格字符串的函数**  
+		 	函数无法返回一个字符串,但是可以返回字符串的地址.
+			```Cpp
+			#include <iostream>
+			char * buildstr(char r, int n);
+			int main()
+			{
+			    using namespace std;
+			    int times;
+			    char ch;
+			    cout << "Enter a character: ";
+			    cin >> ch;
+			    cout << "Enter an integer: ";
+			    cin >> times;
+			    char *ps = buildstr(ch, times);
+			    cout << ps << endl;
+			    delete [] ps;
+			    ps = buildstr('+',4);
+			    cout << ps << "-DONE-" << ps << endl;
+			    delete [] ps;
+			    return 0;
+			}
+			char * buildstr(char c, int n)
+			{
+			     char * pstr = new char[n+1];
+			     pstr[n] = '\0';
+			     while ( n-- > 0)
+			         pstr[n] = c;
+			     return pstr;
+			}
+			
+			output:
+			Enter a charcater: **V**
+			Enter an integer: **14**
+			vvvvvvvvvvvvvv
+			vvvv-DONE-vvvv
+			```
+	6. ### 函数和结构体
+		1. **传递和返回结构体**
+		2. **另一个处理结构体的函数示例**
+		3. **传递结构体的地址**
+	7. ### 函数和string对象
+	8. ### 函数与array对象
+	9. ### 递归
+		1. **包含一个递归调用的递归**
+		2. **包含多个递归调用的递归**
+	10. ### 函数指针
+		与数据相似,函数也有地址.函数的地址是存储其机器代码的内存开始的地址.
+		1. **函数指针的基础知识**
+			1. *获取函数的地址*  
+			   函数的地址就是其函数名(后面不跟参数).
+			2. *声明函数指针*  
+			   声明指向某种数据类型的指针时,必须指定指针指向的类型.  
+			   假如编写了一个函数:  
+			   `double pam(int);`  
+			   则正确的指针类型声明如下:  
+			   `double (*pf)(int);`  
+			   (*pf)是函数,pf是函数指针.
+			3. *使用指针来调用函数*  
+			   ```Cpp
+			   double pam(int);
+			   double (*pf)(int);
+			   pf = pam;
+			   double x = pam(4);
+			   double y = (*pf)(5);
+			   ```  
+			   最后一句也可以这么写`double y = pf(int);`  
+		2. **函数指针示例**
+		3. **深入探讨函数指针**
+		4. **使用typedef进行简化**
+			
