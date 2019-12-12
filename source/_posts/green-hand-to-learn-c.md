@@ -121,11 +121,11 @@ categories: programming
 	  	 以下三种方式都可行
 		3. **类简介**  
 	   详见[C++ Primer Plus 2.3.3](~/下载/C++)
-		4. **函数**  
-	   		* (在这介绍简单的基础知识,在之后详细讨论)  
+		4. **函数**
+			* (在这介绍简单的基础知识,在之后详细讨论)  
 	     (大致与C语言相同)  
-	     有稍微一点不同:在描述函数原型时可以` double pow(double, double);` 在参数表内可以不写参数的变量名,只写参数的数据类型.但是在函数头内要写.  
-	  		 * 在多函数程序中使用using编译指令  
+	     有稍微一点不同:在描述函数原型时可以` double pow(double, double);` 在参数表内可以不写参数的变量名,只写参数的数据类型.但是在函数头内要写.
+	     	* 在多函数程序中使用using编译指令  
 	     将编译指令放在所有函数的外面,且位于函数的前面.
 2. ## 处理数据  
 	>  面向对象编程的本质是设计并扩展自己的数据类型.在创建自己的类型之前,必须了解C++内置的类型.  
@@ -149,33 +149,33 @@ categories: programming
 		5. **选择整型类型**  
 		6. **整型字面值**  
 		   (参考C表示进制)  
-		   ```Cpp
-		   #include <iostream>
-		   int main()
-		   {
-		      using namespace std;
-		      int chest = 42;	// decimal integer literal
-		      int waist = 0x42;	// hexadecimal integer literal
-		      int inseam = 042;	// octal integer literal
-		      cout << "Monsieur cuts a striking figure!\n";
-		      cout << "chest = " << chest << : (42 in decimal)\n";
-		      cout << "waist = " << waist << " (0x42 in hex)\n";
-		      cout << "inseam = " << inseam << " (octal for 42)\n";
-		      return 0;
-		   }
+		   	```Cpp
+		   	#include <iostream>
+		   	int main()
+		   	{
+		      	using namespace std;
+		      	int chest = 42;	// decimal integer literal
+		      	int waist = 0x42;	// hexadecimal integer literal
+		      	int inseam = 042;	// octal integer literal
+		      	cout << "Monsieur cuts a striking figure!\n";
+		      	cout << "chest = " << chest << : (42 in decimal)\n";
+		      	cout << "waist = " << waist << " (0x42 in hex)\n";
+		      	cout << "inseam = " << inseam << " (octal for 42)\n";
+		      	return 0;
+		   	}
 		   
-		   output:
-		   	Monsieur cute a striking figure!
+		   	output:
+		   		Monsieur cute a striking figure!
 				chest = 42 (42 in decimal)
 				waist = 66 (0x42 in hex)
 				inseam = 34 (042 in octal)
 			```
 			在默认情况下,cout以十进制格式显示整数,而不管这些整数在程序中如何书写.  
-	但是,在头文件iostream,中提供了控制符dec,hex和oct用以输出不同进制显示的整数.
+			但是,在头文件iostream,中提供了控制符dec,hex和oct用以输出不同进制显示的整数.
 			```Cpp
-		   #include <iostream>
-		   int main()
-		   {
+		   	#include <iostream>
+		   	int main()
+		   	{
 		      using namespace std;
 		      int chest = 42;
 		      int waist = 42;
@@ -218,7 +218,7 @@ categories: programming
 	  	   Enter a character:
 	 	    M
 	 	    Hola! Thank you for the M charcater. 
-	  	   ```
+	  	   	```
 	  	 	但是如果将M的ASCII码,存储在int类型中,将输出77(cout将显示两个字符7).
 	  	 	```Cpp
 	 	 	 #include <iostream>
@@ -238,9 +238,8 @@ categories: programming
 	   	     The ASCII code for M is 77
 	   	     Displaying char ch using cout.put(ch): M!
 	  	     ```
-		 
-	   		* 成员函数cout.put()  
-		  	cout.put()是一个重要的面向对象概念---成员函数的例子.类定义了如何表示和控制数据:其中类也定义了一个个函数(即成员函数).类中的数据或函数只能通过类的对象来使用.在使用时需加上'.'句点即成员运算符.(详细在之后讲).  
+		     * 成员函数cout.put()  
+		  	cout.put()是一个重要的面向对象概念---成员函数的例子.类定义了如何表示和控制数据:其中类也定义了一个个函数(即成员函数).类中的数据或函数只能通过类的对象来使用.在使用时需加上'.'句点即成员运算符.(详细在之后讲).
 			* char字面值  
 		 在C++中对于常规字符,最简单的方法是将字符用单引号括起,这种表示法代表的是字符的数值编码.对于无法表示的字符可以用转义序列(同C).
 		9. **bool**类型  
@@ -399,8 +398,8 @@ categories: programming
 		   Done!
 		   ```
 		   用户根本没有输入地址的机会.因为在读取年份时,回车键产生的换行符留在了输入队列中.后面的get.getline()将认为是一个空行.因此在cin >> year；之后加上cin.get()或(cin >> year).get()；
-	 3. ### string类简介
-	  	* C++添加了string类型的变量,来储存字符串.string类型变量包含在头文件string中.   
+	3. ### string类简介
+		* C++添加了string类型的变量,来储存字符串.string类型变量包含在头文件string中.   
 	  		```Cpp
 	  		#include <iostream>
 	  		#include <string>
@@ -431,7 +430,7 @@ categories: programming
 	        the third letter in panther is n
 	   		 ```
 	 		 可以用C风格字符串来初始化string对象；可以用cin来键盘输入储存到string对象中；可以用cout来显示string对象；可以使用数组表示法来访问存储在string对象中的字符.  
-	  主要区别是可以将string对象声明为简单变量而不是数组. 
+	  主要区别是可以将string对象声明为简单变量而不是数组.
 	  	1. **C++11字符串初始化**  
 		   允许使用列表初始化.
 		2. **赋值,拼接和附加**  
@@ -528,7 +527,7 @@ categories: programming
 		   (与C类似 )
 	5. ### 共用体
 		(与结构体的关系和C中共用体与结构体的关系相似,因此暂时省略)
-	6. ###枚举
+	6. ### 枚举
 		使用枚举(enum)的句法与结构体相似:`enum spectrum {red,orange,yellow,green,blue,violet,indigo,ultraviolet};`  
 		在这个语句中,让spectrum成为新的类型名称；同时将red,orange,yellow等作为符号常量,对应整数值0~7(当然也可以自己定义).  
 		可以用枚举名称来声明这种类型的变量:`spectrum band;`  
@@ -585,16 +584,16 @@ categories: programming
 			程序说明：  
 			该程序使用new分别为int类型和double类型的数据对象分配内存，这是程序运行时进行的。  
 			对于指针，需要另外指出，变量nights和pd的值都存储在栈里，而new从堆例分配内存。  
-		5. **使用delete释放内存**  
-		   	当new申请的内存使用完后，需要用delete运算符释放内存。使用示例：  
+		5. **使用delete释放内存**
+			当new申请的内存使用完后，需要用delete运算符释放内存。使用示例：  
 			```Cpp
 			int * ps = new int;
 			······
 			delete ps;
 			```
-			这将释放ps指向的内存，但不惠删除ps本身，可以将ps重新指向另一个新分配的内存。另外，一定要配对的使用new和delete，否则会发生内存泄漏。另外不能用得了特来释放声明变量（即不是new）所获得的内存。  
-		6. **使用new来创建动态数组**  
-		   如果通过声明来创建数组，则在程序 被编译时将为它分配内存空间，不管最终是否使用数组，数组都在那，占用了内存，这种方式叫做静态联编。但使用new，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组长度，这被称为动态联编。  
+			这将释放ps指向的内存，但不惠删除ps本身，可以将ps重新指向另一个新分配的内存。另外，一定要配对的使用new和delete，否则会发生内存泄漏。另外不能用得了特来释放声明变量（即不是new）所获得的内存
+		7. **使用new来创建动态数组**  
+		   如果通过声明来创建数组，则在程序 被编译时将为它分配内存空间，不管最终是否使用数组，数组都在那，占用了内存，这种方式叫做静态联编。但使用new，如果在运行阶段需要数组，则创建它；如果不需要，则不创建。还可以在程序运行时选择数组长度，这被称为动态联编
 		   	1. *使用new创建动态数组*  
 			   创建动态数组，只要将数组的元素类型和元素数目告诉new即可。如果想创建一个包含10个int元素的数组，可以这样做：  
 			   `int * psome = new int [10];`  
@@ -683,8 +682,8 @@ categories: programming
 		 ```
 		1. **程序说明**  
 			数组名相当于第一个元素的地址。
-		2. **指针小结**  
-		   	1. *声明指针*
+		2. **指针小结**
+			1. *声明指针*
 			2. *给指针赋值*
 			3. *对指针解除引用*
 			4. *区分指针和指针所指向的值*
@@ -732,7 +731,7 @@ categories: programming
 			fox at 0x004301c8
 			```
 	   		* 程序说明（暂时省略）
-		4. **使用new创建动态结构**  
+	 	4. **使用new创建动态结构**  
 		   	需要在程序运行时为结构分配所需的空间，也可以使用new运算符来完成。通过使用new，可以创建动态结构体。由于类与结构体非常相似，因此有关结构体的技术也适用于类。  
 			例如，要创建一个未命名的inflatable类型，并将其地址赋给一个指针，可以这样做：  
 			`inflatable * ps = new inflatable;`  
@@ -772,7 +771,7 @@ categories: programming
 			   ```
 			2. *程序说明*  
 			        在getname()函数中,使用cin讲输入的单词放到temp数组中,然后使用new分配新内存,以存储该单词.
-		5. **自动存储,静态存储和动态存储**  
+		6. **自动存储,静态存储和动态存储**  
 			1. *自动存储*  
 			   	(类似C的自动变量,自动变量通常存储在栈中)
 			2. *静态存储*  
@@ -862,29 +861,29 @@ categories: programming
 	1. ### for循环  
 	   (与C相似部分省略)
 		1. **for循环的组成部分**  
-		   	1. *表达式和语句*  
-			   	C++每个表达式都有值:28 *20 是值为560的表达式；x = 20 是值为20 的表达式；maids = (cooks = 3) + 4,表达式cooks = 3的值为3,因此maids的值是7；x<y将被判定为bool值true或false.  
+		   1. *表达式和语句*  
+			   C++每个表达式都有值:28 *20 是值为560的表达式；x = 20 是值为20 的表达式；maids = (cooks = 3) + 4,表达式cooks = 3的值为3,因此maids的值是7；x<y将被判定为bool值true或false.  
 				然而在语句中<<运算符优先级高于算数运算符,所以要使用括号.  
 				从表达式到语句的转变很容易,只要加分号即可.
 			2. *非表达式和语句*  
 				虽然表达式加上分号变成语句,但不代表所有语句去掉分号就是表达式.
-			4. *修改规则*  
+			3. *修改规则*  
 				C++允许在for循环中初始化:`for (int i = 0; i< 5; i++);`这种变量只存在于for语句中.
-		2. *回到for语句*  
-		3. *修改步长*
-		4. *使用for循环访问字符串*
-		5. *递增运算符(++)和递减运算符(--)*
-		6. *副作用和顺序点*
-		7. *前缀格式和后缀格式*
-		8. *递增/递减运算符和指针*
-		9. *组合赋值运算符*
-		10. *复合语句*
-		11. *其他语法技巧---逗号运算符*
+		2. **回到for语句**  
+		3. **修改步长**
+		4. **使用for循环访问字符串**
+		5. **递增运算符(++)和递减运算符(--)**
+		6. **副作用和顺序点**
+		7. **前缀格式和后缀格式**
+		8. **递增/递减运算符和指针**
+		9. **组合赋值运算符**
+		10. **复合语句**
+		11. **其他语法技巧---逗号运算符**
 			C++中逗号表达式的值是右半部分的值.
-		12. *关系表达式*
-		13. *赋值,比较和可能犯的错误*
-		14. *C风格字符串的比较*
-		15. *比较string类字符*  
+		12. **关系表达式**
+		13. **赋值,比较和可能犯的错误**
+		14. **C风格字符串的比较**
+		15. **比较string类字符**  
 		    对于C风格的字符串只能用strcmp()进行比较,而string可以用关系运算符即可.
 	2. ### while循环
 		1. **for和while**
@@ -1047,10 +1046,9 @@ categories: programming
 				* 首先,声明一个指向常量的指针pt:  
 					`int age = 39；`  
 					`const int * pt = &age;`  
-					该声明指出,pt指向一个const int,因此不能用pt来修改这个值,即*pt为常量不能被修改:  
+					该声明指出,pt指向一个const int,因此不能用pt来修改这个值,即*pt为常量不能被修改(以下代码是不成立的):  
 					`*pt += 1;`  
 					`cin >> *pt;`  
-					这些都是不允许的.  
 					但是有一个很微妙的问题.pt的声明并不意味这它指向的值实际上就是一个常量,而只是对于pt而言是常量.例如上面的情况下,可以直接通过age变量来修改age的值(前提是age本身不是常量).(另外C++进制将const地址赋给非const指针)  
 					再回到之前的声明:  
 					`int age = 39;`  
@@ -1141,4 +1139,39 @@ categories: programming
 		2. **函数指针示例**
 		3. **深入探讨函数指针**
 		4. **使用typedef进行简化**
+8. ## 深入探索函数
+	1. ### C++内联函数
+		该特性可以让程序减少跳跃到函数所在地址的时间,但是相应的将会占用更多的内存.  
+		使用该特性,必须采取下述措施之一:
+		* 在函数声明前加上关键字inline
+		* 在函数定义前加上关键字inline
+		
+		需要注意的是内联函数不能递归.
+	2. ### 引用变量
+		1. **创建引用变量**
+			* 例如,要将rodents作为rats变量的别名,可以这样做:  
+			`int rats;`  
+			`int & rodents = rats;`
 			
+			其中,&不是地址运算符,而是类型标识符的一部分.上述引用表明允许rats和rodents互换.
+		2. **将引用用作函数参数**
+			* 具体用法类似指针
+		3. **引用的属性和特别之处**
+		4. **将引用用于结构体**
+		5. **将引用用于类对象**
+		6. **对象,继承和引用**
+		7. **何时使用引用参数**
+	3. ### 默认参数
+	4. ### 函数重载
+	5. ### 函数模板
+	(以上暂时省略)
+9. ## 内存模型和名称空间
+10. ## 对象和类
+11. ## 使用类
+12. ## 类和动态内存分配
+13. ## 类继承
+14. ## C++中的代码重用
+15. ## 友元,异常和其他
+16. ## string类和标准模板库
+17. ## 输入,输出和文件
+18. ## 探讨C++新标准
