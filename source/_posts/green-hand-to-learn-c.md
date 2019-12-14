@@ -176,50 +176,50 @@ categories: programming
 		   	#include <iostream>
 		   	int main()
 		   	{
-		      using namespace std;
-		      int chest = 42;
-		      int waist = 42;
-		      int inseam = 42;	
-		      cout << "Monsieur cuts a striking figure!\n";
-		      cout << "chest = " << chest << : (decimal for 42)\n";
-		      cout << hex;	// manipulator for changing number base
-		      cout << "waist = " << waist << " (hexadecimal for 42)\n";
-		      cout << oct;	// manipulator for changing number base
-		      cout << "inseam = " << inseam << " (octal for 42)\n";
-		      return 0;
-		   }
-		   output :
-		   Monsieur cuts a striking figure!
-		   chest = 42 (decimal for 42)
-		   waist = 2a (hexadecimal for 42)
-		   inseam = 52 (octal for 42)
-	 		```  
+		            using namespace std;
+		            int chest = 42;
+		            int waist = 42;
+		            int inseam = 42;	
+		            cout << "Monsieur cuts a striking figure!\n";
+		            cout << "chest = " << chest << : (decimal for 42)\n";
+		            cout << hex;	// manipulator for changing number base
+		            cout << "waist = " << waist << " (hexadecimal for 42)\n";
+		            cout << oct;	// manipulator for changing number base
+		            cout << "inseam = " << inseam << " (octal for 42)\n";
+		            return 0;
+		   	}
+		   	output :
+		   	Monsieur cuts a striking figure!
+		   	chest = 42 (decimal for 42)
+		   	waist = 2a (hexadecimal for 42)
+		   	inseam = 52 (octal for 42)
+	 		```
 		7. **C++如何确定常量的类型**
 	  	 `cout << "Year = " <<1492 << "\n";`  
 	  	 程序会把1492存储为int型.  
 	  	 而将整型常量存储为其他类型的条件:
-	   		* 使用特殊后缀来表示特定类型
-			* 值太大  
-		8. **char类型:字符和小整数**  
-	   		其内部通过ASCII码存储字符,因此char类型是另一种整型,可以用做比short更小的整型.一般定义为char类型时:输入字符,cout将字符转化为数字编码；输出时cin再转化为字符.
-	 	  	``` Cpp
+		 	* 使用特殊后缀来表示特定类型
+			* 值太大
+		8. **char类型:字符和小整数**
+			* 其内部通过ASCII码存储字符,因此char类型是另一种整型,可以用做比short更小的整型.一般定义为char类型时:输入字符,cout将字符转化为数字编码；输出时cin再转化为字符.
+			``` Cpp
 	 	 	 #include <iostream>
 	 	 	 int main ( )
 	  		 {
 	   	 	    using namespace std;
-	    	    char ch;
-	   	        cout << "Enter a character: " <<endl;
-	   	        cin >> ch;
+	    	            char ch;
+	   	            cout << "Enter a character: " <<endl;
+	   	            cin >> ch;
 	   		    cout << "Hola! ";
 	   		    cout << "Thank you for the "" << ch << " charcater." << endl;
-	    	    return 0;
-	 	      }
-	 	   output:
-	  	   Enter a character:
-	 	    M
-	 	    Hola! Thank you for the M charcater. 
+	    	    	    return 0;
+	 	      	}
+	 	   	output:
+	  	   	Enter a character:
+	 	    	M
+	 	    	Hola! Thank you for the M charcater. 
 	  	   	```
-	  	 	但是如果将M的ASCII码,存储在int类型中,将输出77(cout将显示两个字符7).
+			但是如果将M的ASCII码,存储在int类型中,将输出77(cout将显示两个字符7).
 	  	 	```Cpp
 	 	 	 #include <iostream>
 	 	  	  int main( )
@@ -242,7 +242,7 @@ categories: programming
 		  	cout.put()是一个重要的面向对象概念---成员函数的例子.类定义了如何表示和控制数据:其中类也定义了一个个函数(即成员函数).类中的数据或函数只能通过类的对象来使用.在使用时需加上'.'句点即成员运算符.(详细在之后讲).
 			* char字面值  
 		 在C++中对于常规字符,最简单的方法是将字符用单引号括起,这种表示法代表的是字符的数值编码.对于无法表示的字符可以用转义序列(同C).
-		9. **bool**类型  
+		10. **bool**类型  
 		  在计算中其值可以是true或false.
 		  `bool is_ready = true；`  
 		  字面值true和false可以转化为int类型,true转换为1,false转换为0.  
@@ -1173,5 +1173,74 @@ categories: programming
 14. ## C++中的代码重用
 15. ## 友元,异常和其他
 16. ## string类和标准模板库
+	1. ### string类
+		1. **构造字符串**
+			* 构造函数:
+				* string(吃哦那是他char * s):将string对象初始化为s指向的NBTS.
+				* string(size_type n,char c):创建一个包含n个元素的string对象,其中每个元素都被初始化为字符c.
+				* string(const string & str):将一个string对象初始化为stringduixiangstr(复制构造函数).
+				* string():创建一个默认的string对象,长度为0.
+				* string(constr * char s,size_type n):将string对象初始化为s指向的NBTS的前n个字符.
+				* template<class Iter\> string(Iter begin, Iter end):将string对象初始化为区间[begin,end)内的字符.
+				* string(const string & str,string size_type pos = 0,size_type n = npos):将一个string对象初始化为对象str中从位置pos开始到结尾的字符,或从位置pos开始的n个字符.
+			```Cpp
+			#include <iostream>
+			#include <string>
+			int main()
+			{
+			    using namespace std;
+			    string one("Lottery Winner!";
+			    cout << one << endl;
+			    string two(20, '$');
+			    cout << two << endl;
+			    string three(one);
+			    cout << three << endl;
+			    one += "Oops";
+			    cout << one << endl;
+			    two = "Sorry! That was ";
+			    three[0] = 'P';
+			    string four;
+			    four = two + three;
+			    cout << four << endl;
+			    char alls[] = "All's well that ends ends well";
+			    string five(alls,20);
+			    cout << five << "!\n";
+			    string six(alls + 6, alls + 10);
+			    cout << six << ", ";
+			    string seven(&five[6], &five[10]);
+			    cout << seven << "...\n";
+			    string eight(four, 7, 16);
+			    cout << eight << " in motion!" << endl;
+			    return 0;
+			}
+			
+			output:
+			Lottery Winner!
+			$$$$$$$$$$$$$$$$$$$$$
+			Lottery Winner!
+			Lottery Winner! Oops!
+			Sorry! That was Pottery Winner!
+			All's well that ends!
+			well, well...
+			That was Pottery in motion!
+			```
+		2. **string**类输入
+			* C-风格字符串的输入方式:
+				* `char info[100];`
+				* `cin >> info;`
+				* `cin.getline(info, 100);`
+				* `cin.get(info, 100);`
+			* string对象的输入方式:
+				* `string stuff;`
+				* `cin >> stuff;`
+				* `getline(cin. stuff)`
+			* 两个版本的getline()都有一个可选参数,用于指定使用哪个字符来确定输入的边界:
+				* `cin.getline(info,100,':');`
+				* `getline(stuff, ':');`
+			在功能上,其最主要的区别在于string版本的getline()将自动调整目标string对象的大小.
+		3. **使用字符串**
+		4. **string还提供了那些功能**
+		5. **字符串种类**
+	2. ### 智能指针模板类
 17. ## 输入,输出和文件
 18. ## 探讨C++新标准
