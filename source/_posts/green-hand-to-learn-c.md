@@ -1242,5 +1242,231 @@ categories: programming
 		4. **string还提供了那些功能**
 		5. **字符串种类**
 	2. ### 智能指针模板类
-17. ## 输入,输出和文件
-18. ## 探讨C++新标准
+		* 智能指针是行为类似于指针的对象,但这种对象还有其他功能.这里将介绍三种模板指针(auto_ptr,unique_ptr和shared_ptr).
+		1. **使用智能指针**
+			* 这三个模板指针,都定义了类似指针的对象,可以将new获得的地址赋给这种对象.当智能指针过期时,其析函数将自动使用delete来释放内存.
+			```Cpp
+			void demo1()
+			{
+			    double * pd = new double;	// 为pd和一个double值分配存储空间,保存地址.
+			    *pd = 25.5;	     // 将值复制到动态内存中.
+			    return;     // 删除pd,值被保留在动态内存中.
+			}
+			
+			void demo2()
+			{
+			     auto_ptr<double> ap(new double);	   // 为ap和一个double值分配存储空间,保存地址.
+			     *ap = 25.5;	// 将值复制到动态内存中.
+			     return;	// 删除ap,ap的析构函数释放动态内存.
+			}
+			```
+			要创建智能指针对象,必须包含头文件memory.
+		2. **有关智能指针的注意事项**
+	3. ### 标准模板库
+		* STL提供了一组表示容器,迭代器,函数对象和算法的模板.容器是一个与数组类似的单元,可以存储若干值.STL存储的值的类型相同；算法是完成特定任务(如对数组进行排序或在链表中查找特定值)的处方；迭代器能够用来遍历容器的对象,与能够遍历数组的指针类似,是广义指针；函数对象是类似于函数的对象,可以是类对象或函数指针.
+		* STL不是面向对象编程,而是一种不同的编程模式---泛型编程.所以STL在功能和方法方面都很有趣.
+		1. **模板类<vector\>**
+			> 在前面曾简单的介绍过vector类,接下来更详细的介绍它.计算中,矢量(vector)对应数组,而不是数学矢量.
+			* 计算矢量存储了一组可随机访问的值,即可以使用索引来直接访问矢量的第十个元素.而不必首先访问前面的9个元素,即可以使用[]运算符来访问vector元素.
+			```Cpp
+			#include <iostream>
+			#include <string>
+			#include <vector>
+			const int NUM = 5;
+			int main()
+			{
+			    using namespace std;
+			    vector<int> ratings(NUMS);
+			    vector<double> titles(NUM);
+			    cout << "You will do exactly as told. You will enter\n"
+			         << NUM << " book titles and your ratings (0 - 10).\n";
+			    int i;
+			    for (i = 0; i < NUM; i++)
+			    {
+			        cout << "Enter title #" << i + 1 << ": ";
+				getline(cin,titles[i]);
+				cout << "Enter your ratings (0-10): ";
+				cin >> rating[i];
+				cin.get();
+			    }
+			    cout << "Thank you. You entered the following:\n"
+			         << "Rating\tBook\n";
+			    for(i = 0; i < NUM; i++)
+			    {
+			        cout << ratings[i] << "\t" << titles[i] << endl;
+			    }
+			    return 0;
+			}
+			
+			output:
+			You will do exactly as told. You will enter
+			5 book titles and your ratings ( 0 -10 ).
+			......
+			```
+		2. **可对矢量执行的操作**
+			* 除分配存储空间外,vector模板还可以完成:size()---返回容器中元素数目,swap()---交换两个容器的内容,begin()---返回一个指向容器的第一个元素的迭代器,end()---返回一个表示超过容器尾的迭代器.
+			* 迭代器是一个广义指针.事实上它可以是指针,也可以是一个可对其执行类似指针的操作---如解除引用(如operate*())和递增(如operate++())---的对象.
+			* 每个容器类都定义了一个合适的迭代器,vector迭代器的类型是一个名为iterator的typedef,其作用域是整个类.例如,要为vector的double类型规范声明一个迭代器:  
+				`vector<double>::iterator pd;`  
+				假设scores是一个vector<double>对象:  
+				`vector<double> scores;`  
+				则可以使用迭代器pd执行这样的操作:  
+				`pd = scores.begin();`  
+				`*pd = 22.3;`  
+				`++pd;`
+			* 还有一个C++11自动类型推断很有用的地方.例如,可以不这样做:
+				`vector<double>::iterator pd = score.begin();`  
+			而这样做:  
+			`auto pd = scores.begin();`
+			* 回到前面,超过结尾是一种迭代器,指向容器最后一个元素后面的元素.这个与C-风格字符串最后一个字符后面的空字符类似,只是空字符是一个值,而"超过结尾"是一个指向元素的指针.因此,可以使用以下代码来遍历整个容器的内容:
+				* `for (pd = scores.begin(); pd != scores.end(); pd++)`  
+				`cout << *pd << endl;`
+			* 所有容器都包含刚才讨论的方法.vector模板类也包含了一些只有某些STL容器才有的方法.如push_back(),它将元素添加到矢量末尾:
+				```Cpp
+				vector<double> scores;
+				double temp;
+				while (cin >> temp &&temp >= 0)
+			     	scores.push_back(temp);
+				cout << "You entered " << scores.size() << " scores.\n";
+				```
+			* erase()方法删除矢量中给定区间的元素.它接受两个迭代器的参数,这些参数定义了要删除的区间(包括第一个,不包括第二个):  
+			`scores.erase(scores.begin(), scores.begin() + 2);`
+			* insert()方法的功能与erase()相反.它接受三个迭代器参数,第一个参数指定了新元素的插入位置,第二个和第三个迭代器参数定义了被插入区间,该区间通常是另一个容器对象的一部分.例如,下面将矢量new_v中的元素插入到old_v矢量的第一个元素前面:  
+			`vector<int> old_v;`  
+			`vector<int> new_v;`  
+			`...`  
+			`old_v.insert(old_v.begin(),new_v.begin() + 1,new_v.end());`
+			```Cpp
+			#include <iostream>
+			#include <string>
+			#include <vector>
+			
+			struct Review
+			{
+			    std::string title;
+			    int rating;
+			};
+			bool FillReview(Review & rr);
+			void ShowReview(const Review & rr);
+			
+			int main()
+			{
+			    using namespace std;
+			    vector<Review> books;
+			    Review temp;
+			    while (FillReview(temp))
+			        books.push_back(temp);
+			    int num = books.size();
+			    if (num > 0)
+			    {
+			        cout << "TYhank you.You entered the following:\n"
+				     << "Rating\tBook\n";
+				for (int i = 0; i < num; i++)
+				     ShowReview(books[i]);
+				cout << "Reprising:\n"
+				     << "Rating\t Book\n";
+				vector<review>::iterator pr;
+				for (pr = books.begin(); pr != books.end(); pr++)
+				     ShowReview(*pr);
+				vector <Review> oldlist(books);	    // copy construct used
+				if (num > 3)
+				{
+				   books.erase(books.begin() + 1, books.begin() + 3);
+				   cout << "After erasure:\n";
+				   for (pr = books.begin(), pr != books.end(); pr++)
+				       ShowReview(*pr);
+				   books.insert(books.begin(), oldlist.begin() + 1, oldlist.begin + 2);
+				   cout << "After insertion:\n";
+				   for (pr = books.begin(); pr != books.end(); pr++)
+				       ShowReview(*pr);
+				}
+				books.swap(oldlist);
+				cout << "Swapping oldlist with books:\n";
+				for (pr = books.begin(); pr != books.end(); pr++)
+				    ShowReview(*pr);
+			    }
+			    else
+			        cout << "Nothing entered, nothing gained.\n";
+			    return 0;
+			}
+			
+			bool FillReview(Review & rr)
+			{
+			    using namespace std;
+			    cout << "Enter book title (quit to quit): ";
+			    getline(cin,rr.title);
+			    if (rr.title == "quit")
+			        return flase;
+			    cout << "Enter book rating: ";
+			    cin >> rr.rating;
+			    if (!cin)
+			        return false;
+			    while (cin.get() != '\n')
+			        continue;
+			    erturn true;
+			}
+			
+			void ShowReview(const Review & rr)
+			{
+			    std::cout << rr.rating << "\t" << rr.title << std::endl;
+			}
+			```
+		3. **对矢量可执行的其他操作**
+			* 对于有些常见的操作的方法,STL并没有为每个容器定义成员函数,而是定义了一个适用于所有容器类的非成员函数.下面来看3个具有代表性的STL函数: for_esch(), random_shuffle, sort().
+			* for_each()函数可用于很多容器,它接受三个参数.前两个是定义容器中间区间的迭代器,最后一个是指向函数的指针.for_each()函数将被指向的函数应用于容器区间中的各个元素.被指向的函数不能修改容器元素的值.可以用for_each()来代替for循环:
+				```Cpp
+				vector<Review>::iterator pr;
+				for (pr = books.begin(); pr != books.end(); pr++)
+				    ShowReview(*pr);
+				```
+				可替换为:
+				`for_each(books.begin(), books.end(), ShowReview);`
+			* Random_shuffle()函数接受两个指定区间的迭代器参数,并随即排列该区间中的元素:  
+			`random_shuffle(books.begin(), books.end());`  
+			与可用于任何容器的for_each()函数不同,该函数要求容器允许随机访问.
+			* sort()函数也要求容器支持随机访问.该函数有两个版本:第一个版本接受两个定义区间的迭代器参数,并使用为存储在容器中的类型元素定义的<运算符,对区间中的元素进行操作.例如下面的语句按升序对coolstuff进行排序:
+				```Cpp
+				vector<int> coolstuff;
+				...
+				sort(coolstuff.begin(), coolstuff.end());
+				```  
+			* 如果容器元素是用户定义的对象,则要使用sort(),必须定义能够处理该类型对象的operator<()函数.例如,为对结构体Review进行排序:
+				```Cpp
+				bool operate<(const Review & r1, const Review & r2)
+				{
+				    if (r1.title < r2.title)
+				        return true;
+				    else if (r1.title == r2.title && r1.rating < r2.rating)
+				        return true;
+				    else return false;
+				}
+				```
+				有了这样的函数后,就可以对包含Review对象(如books)的矢量进行排序:
+				`sort(books.begin(), books.end());`  
+			如果想按降序或是rating排序,则可以使用另一种格式的sort().它接受三个参数,前面两个参数也是指定区间的迭代器,最后一个参数是指向要使用的函数的指针,而不是用于比较的operate<():
+				```Cpp
+				bool Worsethan(const Review & r1, const Review & r2)
+				{
+				    if (r1.rating < r2.rating)
+				        return true;
+				    else
+				        return false;
+				}
+				```  
+				之后就可以用下面的语句将包含Review对象的books矢量按rating升序排列:
+				`sort(books.begin(), books.end(), Worsethan);`  
+		4. **基于范围的for循环(C++11)**
+			* 按照第五章的内容可以将以下语句:  
+			`for_each(books.begin(), books,end(), ShowReview);`  
+			替换为:  
+			`for (auto x : books) ShowReview(x);`
+			* 不同于for_each(),基于范围的for循环可修改容器的内容,诀窍是指定一个引用参数:
+				```Cpp
+				void InflatReview(Review &r)
+				    {r.rating++;}
+				for (auto & x : books)
+				    InflatReview(x);
+				```
+	4. ### 泛型编程
+17. ## 输入输出和文件
+18. ## 探讨C++新标准 
