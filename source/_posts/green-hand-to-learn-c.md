@@ -1595,12 +1595,12 @@ categories: programming
 			1. *容器概念*
 				* 没有与容器概念对应的类型,但概念描述了容器类都同用的元素.
 				* 容器是存储其他对象的对象.被存储的对象必须是同一种类型的.当容器过期时,存储在容器中的数据也将过期(如果数据是指针的话,则它指向的数据并不一定过期).
-				* 所有的容器都提供某些特征和操作:![image](/home/leolanger/blog/source/_posts/images/Screenshot_20191217_112021.png)
+				* 所有的容器都提供某些特征和操作:![image](https://raw.githubusercontent.com/lhd-code/lhd-code.github.io/hexo/source/_posts/images/Screenshot_20191217_112021.png)
 			2. *C++11新增的容器要求*
-				![image1](/home/leolanger/blog/source/_posts/images/Screenshot_20191217_115409.png)
+				![image1](https://raw.githubusercontent.com/lhd-code/lhd-code.github.io/hexo/source/_posts/images/Screenshot_20191217_115409.png)
 			3. *序列*
 				* 可以通过添加要求来改进基本的容器概念.序列概念增加了迭代器至少是正向迭代器这样的要求,这保证了元素将按特定顺序排列,不会发生两次迭代之间发生变化.
-				* 序列的要求:![image3](/home/leolanger/blog/source/_posts/images/Screenshot_20191217_115855.png)
+				* 序列的要求:![image3](https://raw.githubusercontent.com/lhd-code/lhd-code.github.io/hexo/source/_posts/images/Screenshot_20191217_115855.png)
 				* 下面详细介绍7中序列容器类型:
 					1. vector
 					2. deque
