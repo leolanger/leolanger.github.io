@@ -165,4 +165,91 @@ tags:  git
 			`$ git rm \*~`  
 			该命令为删除以~结尾的所有文件.
 		11. ###### 移动文件
+			在Git中重命名某个文件可以如此操作:`$ git mv file_from file_to` 进行这项操作后可以看到以下说明
+			```bash
+			$ git mv README.MD README
+			$ git status
+			On branch master
+			Changes to be committed:
+			  (use "git reset HEAD <file>..." to unstage)
+			  
+			  renamed:	README.MD -> README
+			```
+			其实运行git mv就相当与运行了下面三条命令:
+			```bash
+			$ mv README.md README
+			$ git rm README.md
+			$ git add README
+			```
+	3. #### 查看提交历史
+		可以使用git log命令来查看提交的历史:
+		```bash
+		git clone https://github.com/schacon/simplegit-progit
+		$ git log
+		commit ca82a6dff817ec66f44342007202690a93763949
+		Author: Scott Chacon <schacon@gee-mail.com>
+		Date:   Mon Mar 17 21:52:11 2008 -0700
+
+		     changed the version number
+
+		commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
+		Author: Scott Chacon <schacon@gee-mail.com>
+		Date:   Sat Mar 15 16:40:33 2008 -0700
+
+		     removed unnecessary test
+
+		commit a11bef06a3f659402fe7563abf99ad00de2209e6
+		Author: Scott Chacon <schacon@gee-mail.com>
+		Date:    Sat Mar 15 10:31:28 2008 -0700
+
+		     first commit
+		```
+		如果默认不使用任何参数的话,git log 会按提交时间列出所有更新,最近的排在最上面.  
+		当然git log有很多选项:
+		* -p,用来显示每次提交的内容差异.
+		* -2(可换),显示最近两次的提交.
+		```bash
+		$ git log -p -2
+		commit ca82a6dff817ec66f44342007202690a93763949
+		Author: Scott Chacon <schacon@gee-mail.com>
+		Date:   Mon Mar 17 21:52:11 2008 -0700
+
+			changed the version number
+
+		diff --git a/Rakefile b/Rakefile
+		index a874b73..8f94139 100644
+		--- a/Rakefile
+		+++ b/Rakefile
+		@@ -5,7 +5,7 @@ require 'rake/gempackagetask'
+		  spec = Gem::Specification.new do |s|
+			s.platform =   Gem::Platform::RUBY
+			s.name =   "simplegit"
+		-	s.version =   "0.1.0"
+		+	s.version =   "0.1.1"
+			s.author  =   "Scott Chacon"
+			s.email   =   "schacon@gee-mail.com"
+			s.summary =   "A simple gem for using Git in Ruby code."
+
+		commit 085bb3bcb608e1e8451d4b2432f8ecbe6306e7e7
+		Author: Scott Chacon <schacon@gee-mail.com>
+		Date:    Sat Mar 15 16:40:33 2008 -0700
+
+			removed unnecessary test
+
+		diff --git a/lib/simplegit.rb b/lib/simplegit.rb
+		index a0a60ae..47c6340 100644
+		--- a/lib/simplegit.rb
+		+++ b/lib/simplegit.rb
+		@@ -18,8 +18,3 @@ class SimpleGit
+			end
+
+		 end
+		-
+		-if $0 == __FILE__
+		- git = SimpleGit.new
+		- puts git.show
+		-end
+		\ No newline at end of file
+		```
+		
 			
