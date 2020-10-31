@@ -10,7 +10,7 @@ banner_img: https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSe1nzV5XLy4v
 
 
 
-本文是我在根据 [the book](https://doc.rust-lang.org/book/) 学习 rust 时所做的记录，用来加强理解（毕竟本人太菜了）。通常是隔5、6章做一次整理，其中有不理解或存在拓展的点进行标注，在文末总结。有什么意见或者建议欢迎提出。
+本文是我在根据 [the book](https://doc.rust-lang.org/book/) 学习 rust 时所做的记录，用来加强理解（毕竟本人太菜了）。~~通常是隔5、6章做一次整理，其中有不理解或存在拓展的点进行标注，在文末总结。有什么意见或者建议欢迎提出。~~回过头来，看看写的实在太烦了，想必日后会有精简 + 归纳吧。
 
 <!-- more -->
 
@@ -34,7 +34,7 @@ banner_img: https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSe1nzV5XLy4v
 
   `$ export PATH="$HOME/.cargo/bin:$PATH"`
 
-+ #### 更新和卸载（你敢卸载试试看）
++ #### 更新和卸载
 
   更新：`$ rustup update`
 
