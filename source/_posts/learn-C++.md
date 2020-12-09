@@ -2,7 +2,7 @@
 title: learn-C++
 date: 2020-05-19 13:24:29
 tags: C++
-categories: language
+categories: note
 ---
 
 

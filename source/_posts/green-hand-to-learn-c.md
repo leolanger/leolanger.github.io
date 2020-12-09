@@ -2,7 +2,7 @@
 title: green hand to learn c++
 date: 2019-11-13 22:48:37
 tags: C++
-categories: language
+categories: note
 
 ---
 

@@ -3,10 +3,6 @@ title: The_Stack_and_the_Heap
 date: 2020-10-07 21:01:55
 tags: [translation, rust]
 categories: programming
-
-
-
-
 ---
 
 [原文链接](https://doc.rust-lang.org/1.22.0/book/first-edition/the-stack-and-the-heap.html#the-stack-and-the-heap)

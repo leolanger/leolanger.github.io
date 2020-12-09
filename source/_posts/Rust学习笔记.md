@@ -3,7 +3,7 @@
 title: Rust学习笔记
 date: 2020-09-15 14:54:06
 tags: rust
-categories: language
+categories: note
 index_img: https://www.rust-lang.org/static/images/rust-logo-blk.svg
 banner_img: https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSe1nzV5XLy4vds6cQFBxivCU8WzmHl2620OQ&usqp=CAU
 ---

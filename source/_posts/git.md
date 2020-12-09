@@ -1,7 +1,7 @@
 ---
 title: git
 date: 2019-11-06 23:08:12
-categories: tools
+categories: note
 tags: git
 ---
 
