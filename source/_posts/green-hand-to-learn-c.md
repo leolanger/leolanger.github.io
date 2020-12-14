@@ -40,242 +40,266 @@ categories: note
 
         eg:  
           `Microflop::wanda("go dasncing?");     // use Microflop namespace version      
-	   Piscine::wanda("fish named Desie");    // use Piscine namespace version`   
-   
+      Piscine::wanda("fish named Desie");    // use Piscine namespace version`   
+
         这两种情况是两个以封装好的产品包含一个名字相同的函数,运用名称空间可以区分不同的版本.
- 因此定义在iostream中的用于输出的cout变量实际上是std::cout,为了在每次输得时候省略名称空间,在主程序前加上  using namespace std;
-	
+    因此定义在iostream中的用于输出的cout变量实际上是std::cout,为了在每次输得时候省略名称空间,在主程序前加上  using namespace std;
+
         ##### 6.使用cout进行C++输出  
-		`cout <<"Come up and C++ me some time."；`  
-		在该语句中双引号括起得部分叫做字符串(同c).<<符号表示把字符串发送给cout--该符号指出了信息流动得路径.  
-		cout是一个预定义的对象,其对象属性包括一个插入运算符(<<),它可以将其右侧的信息插入到流中；然后cout进行输出.(对于对象之后进行讨论).
-		* 控制符 endl  
-		  endl表示重启一行:在输出流中插入endl将导致屏幕光标移到下一行开头.如果没有endl,每条cout语句的输出从前一个输出的,末尾开始.
-		* 换行符  
-		  即"\n";
-		##### 7. C++源代码的格式化  
-		(暂时省略)  
+   	`cout <<"Come up and C++ me some time."；`  
+   	在该语句中双引号括起得部分叫做字符串(同c).<<符号表示把字符串发送给cout--该符号指出了信息流动得路径.  
+   	cout是一个预定义的对象,其对象属性包括一个插入运算符(<<),它可以将其右侧的信息插入到流中；然后cout进行输出.(对于对象之后进行讨论).
+   	* 控制符 endl  
+   	  endl表示重启一行:在输出流中插入endl将导致屏幕光标移到下一行开头.如果没有endl,每条cout语句的输出从前一个输出的,末尾开始.
+   	* 换行符  
+   	  即"\n";
+   	##### 7. C++源代码的格式化  
+   	(暂时省略)  
 
-	1. ### C++语句
-		 ```Cpp
-		 #include <iostream>
-		  int main()
-		  {
-	 		 using namespace std;
-	 	 	int carrots;
-	    		 arrots = 25;
-	    		cout << "I have ";
-	 		cout << carrots;    // display the value to the variable
-	    		cout << " carrots.";
-	    		cout <<endl;
-	 			 carrots = carrots - 1;
-	 			 cout << "Crunch, crunch. Now I have " << carrots << " carrots." << endl;
-	    		return 0;
-	    	} 
-		 输出:
-	 	I have 25 carrots.  
-	 	Crunch, crunch. Now I have 24 carrots.
-		```
+   1. ### C++语句
+   	 ```Cpp
+   	 #include <iostream>
+   	  int main()
+   	  {
+    		 using namespace std;
+    	 	int carrots;
+       		 arrots = 25;
+       		cout << "I have ";
+    		cout << carrots;    // display the value to the variable
+       		cout << " carrots.";
+       		cout <<endl;
+    			 carrots = carrots - 1;
+    			 cout << "Crunch, crunch. Now I have " << carrots << " carrots." << endl;
+       		return 0;
+       	} 
+   	 输出:
+    	I have 25 carrots.  
+    	Crunch, crunch. Now I have 24 carrots.
+   	```
 
-	 	1. **声明语句和变量**  
-	
-	    (见C语言)
-	 	2. **赋值语句**  
-	
+     1. **声明语句和变量**  
+
+       (见C语言)
+
+     1. **赋值语句** 
+
        C++可以连续使用赋值运算符(与C不同).  
-	    eg:
-	        ```Cpp
-	       int steinway;
-	       int baldwin;
-	       int yamaha;
-	       yamaha = baldwin = steinway =88;
-	      ```
-	    该代码是合法的.  
-	    此时赋值从右向左进行.
-	 	3. **cout的新花样**  
-	
-	    在本节最开始的程序中,有用cout来打印变量,该变量的值是一个整数:  
-	    ` cout << carrots; `  
-	    程序并没有打印"carrots",而是打印了储存在其中的值.该语句其实把两个操作合并了:首先把carrots替换为其当前值,再把值转化为合适的输出**字符**(在打印之前将整数形式的数字转换为字符串形式).
-	2. ### 其他C++语句
-		 ```Cpp
-		 eg:
-	   #include <iostream>
-	     int main()
-	     {
-	        using namespace std;
-			int carrots;
-			cout << "How many carrots do you have?" << endl;
-			cin >> carrots;		// C++ input
-			cout << "Here are two more. ";
-			carrots = carrots +2;
-			cout << "Now you have " << carrots << "carrots." << endl;
-			return 0;
-		}
-		程序运行情况:  
-		How many carrots do you have?  
-		12  
-		Here are two more. Now you have 14 carrots.
-		```
-		1. **使用cin**  
-	   `cin >> carrots;`  
-	   C++将输入看作是流入程序的字符流.cin则为一个表示这种流的对象.输入时,cin 用>>运算符从输入流中抽取**字符**(类似cout),通常在右侧提供变量接受抽取的信息.
-		2. **使用cout进行拼接**  
-	      	 以下三种方式都可行
-		3. **类简介**  
-	   详见[C++ Primer Plus 2.3.3](~/下载/C++)
-		4. **函数**
-			* (在这介绍简单的基础知识,在之后详细讨论)  
-	       (大致与C语言相同)  
-	       有稍微一点不同:在描述函数原型时可以` double pow(double, double);` 在参数表内可以不写参数的变量名,只写参数的数据类型.但是在函数头内要写.
-	     	* 在多函数程序中使用using编译指令  
-	   
-	       将编译指令放在所有函数的外面,且位于函数的前面.
+       eg:
+
+       ```Cpp
+          int steinway;
+          int baldwin;
+          int yamaha;
+          yamaha = baldwin = steinway =88;
+       ```
+
+       该代码是合法的.  
+       此时赋值从右向左进行.
+
+     1. **cout的新花样**  
+
+       在本节最开始的程序中,有用cout来打印变量,该变量的值是一个整数:  
+       ` cout << carrots; `  
+       程序并没有打印"carrots",而是打印了储存在其中的值.该语句其实把两个操作合并了:首先把carrots替换为其当前值,再把值转化为合适的输出**字符**(在打印之前将整数形式的数字转换为字符串形式).
+
+   1. ### 其他C++语句
+       eg:
+
+      ```Cpp
+      #include <iostream>
+        int main()
+        {
+           using namespace std;
+      	int carrots;
+      	cout << "How many carrots do you have?" << endl;
+      	cin >> carrots;		// C++ input
+      	cout << "Here are two more. ";
+      	carrots = carrots +2;
+      	cout << "Now you have " << carrots << "carrots." << endl;
+      	return 0;
+      }
+      ```
+
+
+      程序运行情况:  
+      How many carrots do you have?  
+      12  
+      Here are two more. Now you have 14 carrots.
+
+      1. **使用cin**  
+      `cin >> carrots;`  
+      C++将输入看作是流入程序的字符流.cin则为一个表示这种流的对象.输入时,cin 用>>运算符从输入流中抽取**字符**(类似cout),通常在右侧提供变量接受抽取的信息.
+      2. **使用cout进行拼接**  
+         	 以下三种方式都可行
+      3. **类简介**  
+      详见[C++ Primer Plus 2.3.3](~/下载/C++)
+      4. **函数**
+      	* (在这介绍简单的基础知识,在之后详细讨论)  
+          (大致与C语言相同)  
+          有稍微一点不同:在描述函数原型时可以` double pow(double, double);` 在参数表内可以不写参数的变量名,只写参数的数据类型.但是在函数头内要写.
+         * 在多函数程序中使用using编译指令  
+
+           将编译指令放在所有函数的外面,且位于函数的前面.
 2. ## 处理数据  
-	>  面向对象编程的本质是设计并扩展自己的数据类型.在创建自己的类型之前,必须了解C++内置的类型.  
-	内置的C++类型分为:基本类型和复合类型.  
-	1. ### 简单变量
-		1. **变量名**  
-		   (命名方案与C语言较为相似)但是以两个下划线或下划线和大写字母打头将被保留给实现(编译器自带的名称)使用,将导致结果的不确定性.
-		2. **整型**  
-		3. **整型short,int,long,long long**  
-		   (这两节参考C语言,暂省略)  
-		   C++有C语言没有的初始化语法  
-		   `int owls = 101；		// traditional C initialization, sets owls to 101 `
-		   `int werns(142)；	// alternative C++ syntax,set werns to 432`
-		   `int hamburgers = {24};  // set hamburgers to 24`  
-		   `int emus{7;	// set emus to 5`  
-		   `int rheas = {12}; // set rheas to 12`  
-		   `int rocs = {};	// set rocs to 0`  
-		   `int psychis{};	// set psychis to 0`  
-		4. **无符号类型**  
-		   在这讨论超越限制的情况.[image](~/leolanger/图片/Screenshot_20191129_215530.png)
-		5. **选择整型类型**  
-		6. **整型字面值**  
-		   (参考C表示进制)  
-		   	```Cpp
-		   	#include <iostream>
-		   	int main()
-		   	{
-		      	using namespace std;
-		      	int chest = 42;	// decimal integer literal
-		      	int waist = 0x42;	// hexadecimal integer literal
-		      	int inseam = 042;	// octal integer literal
-		      	cout << "Monsieur cuts a striking figure!\n";
-		      	cout << "chest = " << chest << : (42 in decimal)\n";
-		      	cout << "waist = " << waist << " (0x42 in hex)\n";
-		      	cout << "inseam = " << inseam << " (octal for 42)\n";
-		      	return 0;
-		   	}
-		   
-		   	output:
-		   		Monsieur cute a striking figure!
-				chest = 42 (42 in decimal)
-				waist = 66 (0x42 in hex)
-				inseam = 34 (042 in octal)
-			```
-			在默认情况下,cout以十进制格式显示整数,而不管这些整数在程序中如何书写.  
-			但是,在头文件iostream,中提供了控制符dec,hex和oct用以输出不同进制显示的整数.
-			​```Cpp
-		   	#include <iostream>
-		   	int main()
-		   	{
-		            using namespace std;
-		            int chest = 42;
-		            int waist = 42;
-		            int inseam = 42;	
-		            cout << "Monsieur cuts a striking figure!\n";
-		            cout << "chest = " << chest << : (decimal for 42)\n";
-		            cout << hex;	// manipulator for changing number base
-		            cout << "waist = " << waist << " (hexadecimal for 42)\n";
-		            cout << oct;	// manipulator for changing number base
-		            cout << "inseam = " << inseam << " (octal for 42)\n";
-		            return 0;
-		   	}
-		   	output :
-		   	Monsieur cuts a striking figure!
-		   	chest = 42 (decimal for 42)
-		   	waist = 2a (hexadecimal for 42)
-		   	inseam = 52 (octal for 42)
-			```
-		7. **C++如何确定常量的类型**
-	      	 `cout << "Year = " <<1492 << "\n";`  
-	         	 程序会把1492存储为int型.  
-	         	 而将整型常量存储为其他类型的条件:
-		 	* 使用特殊后缀来表示特定类型
-			* 值太大
-		8. **char类型:字符和小整数**
-			* 其内部通过ASCII码存储字符,因此char类型是另一种整型,可以用做比short更小的整型.一般定义为char类型时:输入字符,cout将字符转化为数字编码；输出时cin再转化为字符.
-			``` Cpp
-	 	 	 #include <iostream>
-	 	 	 int main ( )
-	      		 {
-	   	 	    using namespace std;
-	    	            char ch;
-	   	            cout << "Enter a character: " <<endl;
-	   	            cin >> ch;
-	   		    cout << "Hola! ";
-	   		    cout << "Thank you for the "" << ch << " charcater." << endl;
-	    	    	    return 0;
-	 	      	}
-	 	   	output:
-	      	   	Enter a character:
-	 	    	M
-	 	    	Hola! Thank you for the M charcater. 
-	   	```
-		 ```
-	   	但是如果将M的ASCII码,存储在int类型中,将输出77(cout将显示两个字符7).
-	   	 	```Cpp
-	 	 	 #include <iostream>
-	 	  	  int main( )
-	    	 	 {
-	      	         using namespace std;
-	    	     char ch ='M';	// assign ASCII code for M to ch.
-	    	     int i = ch;	// store same code in an int.
-	    	     cout << "The ASCII code for " << ch << " is " << i << endl;
-	    	     // using the cout.put() member function to display a char
-	    	     cout << "Displaying a char ch using cout.put(ch): ";
-	   	         cout.put(ch);
-	   	         cout.put('!');
-		         return 0;
-	    	      }
-	      	     output:
-	   	     The ASCII code for M is 77
-	   	     Displaying char ch using cout.put(ch): M!
-		 ```
-		     * 成员函数cout.put()  
-		      	cout.put()是一个重要的面向对象概念---成员函数的例子.类定义了如何表示和控制数据:其中类也定义了一个个函数(即成员函数).类中的数据或函数只能通过类的对象来使用.在使用时需加上'.'句点即成员运算符.(详细在之后讲).
-		    * char字面值  
-		 在C++中对于常规字符,最简单的方法是将字符用单引号括起,这种表示法代表的是字符的数值编码.对于无法表示的字符可以用转义序列(同C).
-		10. **bool**类型  
-		    在计算中其值可以是true或false.
-		    `bool is_ready = true；`  
-		    字面值true和false可以转化为int类型,true转换为1,false转换为0.  
-		    `int ans = true;	// ans assigned 1`  
-		    任何数字值和指针值都可以被隐式转换为bool值.零值为false,其余为true.  
-	2. ### const限定符  
-	   应在声明中就对const进行初始化.以下代码不好:  
-	   `const int toes；`  
-	   `toes = 10；	// too late`  
-	   这种情况,常量的值不确定,且无法修改.  
-	   (暂时省略)
-	3. ### 浮点数
-		1. **书写浮点数**  
-		2. **浮点类型**
-		3. **浮点常量**
-		4. **浮点数的优缺点**  
-		   (暂时省略)
-	4. ### C++算数运算符  
-		1. **运算符优先级和结合型**
-		2. **除法分支**
-		3. **求模运算符**
-		4. **类型转换**  
-			1. 初始化和赋值时进行的转换  (暂省)
-			2. 以{}方式初始化时进行的转换  
-			   C++11将这种初始化成为列表初始化,因为这种初始化常用于给复杂的数据类型提供值列表.这种方式下赋值时不允许缩窄,例不允许将浮点型转换为整型.
-			3. 表达式中的转换
-			4. 传递参数时的转换
-			5. 强制类型转换
+  >  面向对象编程的本质是设计并扩展自己的数据类型.在创建自己的类型之前,必须了解C++内置的类型.  
+  内置的C++类型分为:基本类型和复合类型.  
+  1. ### 简单变量
+    1. **变量名**  
+       (命名方案与C语言较为相似)但是以两个下划线或下划线和大写字母打头将被保留给实现(编译器自带的名称)使用,将导致结果的不确定性.
+       
+    2. **整型**  
+
+    3. **整型short,int,long,long long**  
+       (这两节参考C语言,暂省略)  
+       C++有C语言没有的初始化语法  
+       `int owls = 101；		// traditional C initialization, sets owls to 101 `
+       `int werns(142)；	// alternative C++ syntax,set werns to 432`
+       `int hamburgers = {24};  // set hamburgers to 24`  
+       `int emus{7;	// set emus to 5`  
+       `int rheas = {12}; // set rheas to 12`  
+       `int rocs = {};	// set rocs to 0`  
+       `int psychis{};	// set psychis to 0`  
+       
+    4. **无符号类型**  
+       在这讨论超越限制的情况.[image](~/leolanger/图片/Screenshot_20191129_215530.png)
+       
+    5. **选择整型类型**  
+
+    6. **整型字面值**  
+       (参考C表示进制)  
+       
+       ```Cpp
+       #include <iostream>
+       int main()
+       {
+          	using namespace std;
+          	int chest = 42;	// decimal integer literal
+          	int waist = 0x42;	// hexadecimal integer literal
+          	int inseam = 042;	// octal integer literal
+          	cout << "Monsieur cuts a striking figure!\n";
+          	cout << "chest = " << chest << : (42 in decimal)\n";
+          	cout << "waist = " << waist << " (0x42 in hex)\n";
+          	cout << "inseam = " << inseam << " (octal for 42)\n";
+          	return 0;
+       }
+       ```
+       
+    		output:
+    			Monsieur cute a striking figure!
+    		chest = 42 (42 in decimal)
+    		waist = 66 (0x42 in hex)
+    		inseam = 34 (042 in octal)
+    	在默认情况下,cout以十进制格式显示整数,而不管这些整数在程序中如何书写.  
+    	但是,在头文件iostream,中提供了控制符dec,hex和oct用以输出不同进制显示的整数.
+       ```Cpp
+       	#include <iostream>
+       	int main()
+       	{
+                using namespace std;
+                int chest = 42;
+                int waist = 42;
+                int inseam = 42;	
+                cout << "Monsieur cuts a striking figure!\n";
+                cout << "chest = " << chest << : (decimal for 42)\n";
+                cout << hex;	// manipulator for changing number base
+                cout << "waist = " << waist << " (hexadecimal for 42)\n";
+                cout << oct;	// manipulator for changing number base
+                cout << "inseam = " << inseam << " (octal for 42)\n";
+                return 0;
+       	}
+       	output :
+       	Monsieur cuts a striking figure!
+       	chest = 42 (decimal for 42)
+       	waist = 2a (hexadecimal for 42)
+    		inseam = 52 (octal for 42)
+    	```
+    	
+    7. **C++如何确定常量的类型**
+         `cout << "Year = " <<1492 << "\n";`  
+          	 程序会把1492存储为int型.  
+          	 而将整型常量存储为其他类型的条件:
+
+         - 使用特殊后缀来表示特定类型
+         - 值太大
+
+    8. **char类型:字符和小整数**
+
+      * 其内部通过ASCII码存储字符,因此char类型是另一种整型,可以用做比short更小的整型.一般定义为char类型时:输入字符,cout将字符转化为数字编码；输出时cin再转化为字符.
+      ``` Cpp
+       	 	 #include <iostream>
+       	 	 int main ( )
+      		 {
+       	    using namespace std;
+       	            char ch;
+                  cout << "Enter a character: " <<endl;
+                  cin >> ch;
+      	    cout << "Hola! ";
+      	    cout << "Thank you for the "" << ch << " charcater." << endl;
+       	    	    return 0;
+       	      	}
+       	   	output:
+      	   	Enter a character:
+       	    	M
+       	    	Hola! Thank you for the M charcater. 
+      ```
+
+      但是如果将M的ASCII码,存储在int类型中,将输出77(cout将显示两个字符7).
+
+      ```Cpp
+       
+       	 	 #include <iostream>
+       	  	  int main( )
+       	 	 {
+         	         using namespace std;
+       	     char ch ='M';	// assign ASCII code for M to ch.
+       	     int i = ch;	// store same code in an int.
+       	     cout << "The ASCII code for " << ch << " is " << i << endl;
+       	     // using the cout.put() member function to display a char
+       	     cout << "Displaying a char ch using cout.put(ch): ";
+      	         cout.put(ch);
+      	         cout.put('!');
+               return 0;
+       	      }
+         	     output:
+      	     The ASCII code for M is 77
+      	     Displaying char ch using cout.put(ch): M!
+      ```
+
+       * 成员函数cout.put()  
+          	cout.put()是一个重要的面向对象概念---成员函数的例子.类定义了如何表示和控制数据:其中类也定义了一个个函数(即成员函数).类中的数据或函数只能通过类的对象来使用.在使用时需加上'.'句点即成员运算符.(详细在之后讲).
+      * char字面值  
+
+       在C++中对于常规字符,最简单的方法是将字符用单引号括起,这种表示法代表的是字符的数值编码.对于无法表示的字符可以用转义序列(同C).
+
+    9. **bool**类型  
+         在计算中其值可以是true或false.
+         `bool is_ready = true；`  
+         字面值true和false可以转化为int类型,true转换为1,false转换为0.  
+         `int ans = true;	// ans assigned 1`  
+         任何数字值和指针值都可以被隐式转换为bool值.零值为false,其余为true.  
+  2. ### const限定符  
+     应在声明中就对const进行初始化.以下代码不好:  
+     `const int toes；`  
+     `toes = 10；	// too late`  
+     这种情况,常量的值不确定,且无法修改.  
+     (暂时省略)
+  3. ### 浮点数
+  	1. **书写浮点数**  
+  	2. **浮点类型**
+  	3. **浮点常量**
+  	4. **浮点数的优缺点**  
+  	   (暂时省略)
+  4. ### C++算数运算符  
+  	1. **运算符优先级和结合型**
+  	2. **除法分支**
+  	3. **求模运算符**
+  	4. **类型转换**  
+  		1. 初始化和赋值时进行的转换  (暂省)
+  		2. 以{}方式初始化时进行的转换  
+  		   C++11将这种初始化成为列表初始化,因为这种初始化常用于给复杂的数据类型提供值列表.这种方式下赋值时不允许缩窄,例不允许将浮点型转换为整型.
+  		3. 表达式中的转换
+  		4. 传递参数时的转换
+  		5. 强制类型转换
 3. ## 复合类型
 	1. ### 数组  
 	   (类似C)
@@ -287,6 +311,7 @@ categories: note
 		   `cout << "I'd give my right arm to be a great violinist.\n";`  
 		   `cout << "I'd give my right ar"`  
 		   `"m to be a great violinist.\n";`  
+		   
 		2. **在数组中使用字符串**  
 		   有两种办法:将数组初始化为字符串常量,将建盘或文件输入读入到数组中.  
 		   ```Cpp
@@ -320,6 +345,7 @@ categories: note
 		   Here are the first 3 characters of ma name: C++.
 		   ```
 		   在该程序中strlen()函数返回储存在数组中字符串的长度并且不把空子符计算在内.在输出字符串时遇到空字符就停止.  
+		   
 		3. **字符串输入**  
 		   但前面的程序存在一个缺陷.  
 		   ```Cpp
@@ -343,6 +369,7 @@ categories: note
 		      Alistair like Dreeb.
 		   ```
 		      我们甚至没有对输入甜点的提示作出反应,程序便显示了出来,然后立即显示最后一行.因为cin使用空白(空格,制表符和换行符)来确定字符串结束的位置,所以cin读取字符时只读取一个单词.读取后,cin将该字符放到数组中,并在结尾自动添加空字符.  
+		   
 		4. **每次读取一行字符串输入**  
 			1. 面向行的输入: getline()  
 			getline()函数读取整行,使用通过回车键输入的换行符来确定输入结尾.调用这种方法,可以使用cin.getline().该函数中有两个参数,第一个是存储输入行的数组的名称,第二个是要读取的字符数(包括空字符).例:`cin.getline(name,20)；`  
@@ -376,11 +403,13 @@ categories: note
 			 因此可以在这两个语句中间加上不带任何参数的cin.get()来读取换行符.
 			 或者可以用`cin.get(name,15).get();`将两个类成员函数拼接起来.同样的cin.getline()也可如此使用.
 			3. 空行和其他问题(暂时省略)
+			
 		5. **混合输入字符串和数字**  
-		 	  ```Cpp
-		   	#include <iostream>
-		   	int main()
-		   	{  
+		
+		   ```Cpp
+		   #include <iostream>
+		   int main()
+		   {  
 		      	uisng namespace std;
 		      	cout << "What year was your house built?\n";
 		      	int year;
@@ -392,7 +421,7 @@ categories: note
 		      	cout << "Address: " << address << endl;
 		      	cout << "Done!\n";
 		      	return 0;
-		   	}
+		   }
 		   
 		   output:
 		   What year was your house built?
@@ -401,7 +430,8 @@ categories: note
 		   Year built: 1966;
 		   Address
 		   Done!
-		   	```
+		   ```
+		   
 		   用户根本没有输入地址的机会.因为在读取年份时,回车键产生的换行符留在了输入队列中.后面的get.getline()将认为是一个空行.因此在cin >> year；之后加上cin.get()或(cin >> year).get()；
 	3. ### string类简介
 		* C++添加了string类型的变量,来储存字符串.string类型变量包含在头文件string中.   
@@ -687,6 +717,7 @@ categories: note
 		```
 		1. **程序说明**  
 			数组名相当于第一个元素的地址。
+			
 		2. **指针小结**
 			1. *声明指针*
 			2. *给指针赋值*
@@ -696,6 +727,7 @@ categories: note
 			6. *指针算数*
 			7. *数组的动态联编和静态联编*
 			8. *数组表示法和指针表示法*
+			
 		3. **指针和字符串**
 			```Cpp
 			#include <iostream>
@@ -733,57 +765,64 @@ categories: note
 			fox at 0x0065fd30
 			After using strcpy():
 			fox at 0x0065fd30
-			fox at 0x004301c8
-			```
+	   	fox at 0x004301c8
+	   	```
 	   		* 程序说明（暂时省略）
-	 	4. **使用new创建动态结构**  
-		   	需要在程序运行时为结构分配所需的空间，也可以使用new运算符来完成。通过使用new，可以创建动态结构体。由于类与结构体非常相似，因此有关结构体的技术也适用于类。  
-			例如，要创建一个未命名的inflatable类型，并将其地址赋给一个指针，可以这样做：  
-			`inflatable * ps = new inflatable;`  
-			比较棘手的是访问成员。创建动态结构体时，不能将成员运算符句点用于结构名，因为这种结构体没有名称，只是知道它的地址。此时应用箭头成员运算符（->)。另一种访问结构体成员的方法就是(*ps).price.
-			1. *一个使用new和delete的示例*  
-			   ```Cpp
-			   #include <iostream>
-			   #include <cstring>
-			   using namespace std;
-			   char * getname(void);
-			   int main()
-			   {
-			       char * name;
-			       name = getname();
-			       cout << name << " at " << (int *) name << "\n";
-			       delete [] name;
-			       name = getname();
-			        cout << name << " at " << (int *) name << "\n";
-			       delete [] name;
-			       return 0;
-			   }
-			   char  * getname()
-			   {
-			       char temp[80];
-			       cout << Enter last name: ";
-			       cin >> temp;
-			       char * pn = new char[strlen(temp) + 1];
-			       strcpy(pn,temp);
-			       return pn;
-			   }
-			   
-			   output:
-			   Enter last name: Fredelddumpkin
-			   Fredelddumpkin AT 0x004326b8
-			   Enter last name: Pook
-			   Pook at 0x004301c8
-			   ```
-			2. *程序说明*  
-			        在getname()函数中,使用cin讲输入的单词放到temp数组中,然后使用new分配新内存,以存储该单词.
-		6. **自动存储,静态存储和动态存储**  
-			1. *自动存储*
-				* (类似C的自动变量,自动变量通常存储在栈中)
-			2. *静态存储*
-				* 使变量成为静态的方法有两种:一种是在函数外面定义它；另一种是在声明变量时使用关键字static:  
-				`static double fee = 56.50;`  
-			3. *动态存储*
-				* new和delete运算符提供了一种更灵活的方法.它们管理一个内存池,被称为自由存储空间或堆.且数据的生命周期不完全受程序和函数的生存时间控制.
+	   	
+	     4. **使用new创建动态结构**  
+	           	需要在程序运行时为结构分配所需的空间，也可以使用new运算符来完成。通过使用new，可以创建动态结构体。由于类与结构体非常相似，因此有关结构体的技术也适用于类。  
+	        	例如，要创建一个未命名的inflatable类型，并将其地址赋给一个指针，可以这样做：  
+	        	`inflatable * ps = new inflatable;`  
+	        	比较棘手的是访问成员。创建动态结构体时，不能将成员运算符句点用于结构名，因为这种结构体没有名称，只是知道它的地址。此时应用箭头成员运算符（->)。另一种访问结构体成员的方法就是(*ps).price.
+	   
+	        	1. *一个使用new和delete的示例*  	   
+	        	
+	        	```Cpp
+	        	#include <iostream>
+	        		   #include <cstring>
+	        		   using namespace std;
+	        		   char * getname(void);
+	        		   int main()
+	        		   {
+	        		       char * name;
+	        		       name = getname();
+	        		       cout << name << " at " << (int *) name << "\n";
+	        		       delete [] name;
+	        		       name = getname();
+	        		        cout << name << " at " << (int *) name << "\n";
+	        		       delete [] name;
+	        		       return 0;
+	        		   }
+	        		   char  * getname()
+	        		   {
+	        		       char temp[80];
+	        		       cout << Enter last name: ";
+	        		       cin >> temp;
+	        		       char * pn = new char[strlen(temp) + 1];
+	        		       strcpy(pn,temp);
+	        		       return pn;
+	        		   }
+	        	
+	        	   output:
+	        	   Enter last name: Fredelddumpkin
+	        	   Fredelddumpkin AT 0x004326b8
+	        	   Enter last name: Pook
+	        	   Pook at 0x004301c8	
+	        	```
+	        	
+	        	
+	        	
+	        	2. *程序说明*  
+	        	        在getname()函数中,使用cin讲输入的单词放到temp数组中,然后使用new分配新内存,以存储该单词.
+	   
+	   5. **自动存储,静态存储和动态存储**  
+	     1. *自动存储*
+	     	* (类似C的自动变量,自动变量通常存储在栈中)
+	     2. *静态存储*
+	     	* 使变量成为静态的方法有两种:一种是在函数外面定义它；另一种是在声明变量时使用关键字static:  
+	     	`static double fee = 56.50;`  
+	     3. *动态存储*
+	     	* new和delete运算符提供了一种更灵活的方法.它们管理一个内存池,被称为自由存储空间或堆.且数据的生命周期不完全受程序和函数的生存时间控制.
 	9. ### 类型组合  
 	   	```Cpp
 		#include <iostream>
@@ -1008,144 +1047,147 @@ categories: note
 		91.6 = average score 5 rounds
 		```
 	8. ### 简单文件输入/输出
-7. ## 函数---C++的编程模块
-	1. ### 复习函数的基本知识
-		1. **定义函数**
-		2. **函数原型和函数调用**
-	3. ### 函数参数和按值传递
-		1. **多个参数**
-		2. **另外一个接受两个参数的函数**
-	3. ### 函数和数组
-		1. **使用数组区间的函数**
-			```Cpp
-			#include <iostream>
-			const int ArSize = 8;
-			int sum_arr(const int * begin, const int * end);
-			int main()
-			{
-			    using namespace std;
-			    int cookies[ArSize] = {1,2,4,8,16,32,64,128};
-			    int sum = sum_arr(cookies, cookies + ArSize);
-			    cout << "Total cookies eaten: " << sum << << " cookies.\n";
-			    sum = sum_arr(cookies, sookies + 3);
-			    cout << "First thre eaters ate " << sum << " cookies.\n);
-			    sum = sum_arr(cookies + 4,cookies + 8);
-			    cout << "Last four eaters ate " << sum << " cookies.\n";
-			    return 0;
-			}
-			    int sum_arr(const int * begin, const int * end)
-			    {
-				const int * pt;
-				int total;
-				for(pt = begin; pt != end; pt++)
-				     total =total + *pt;
-			        return total;
-		       	    }
-				
-			output:
-			Total cookies eaten: 255
-			First thre  eaters ate 7 cookies.
-			Last four eaters ate 240 cookies.
-			```
-			2. **指针和const**   
-				将const用于指针有一些很微妙的地方.可以有两种不同的方式将const关键字用于指针.第一种是让指针指向一个常量对象,这样可以防止使用该指针来修改所指向的值；第二种是将指针本身声明为常量,这样可以防止改变指针指向的值.  
-				* 首先,声明一个指向常量的指针pt:  
-				
-					`int age = 39；`  
-					`const int * pt = &age;`  
-					该声明指出,pt指向一个const int,因此不能用pt来修改这个值,即*pt为常量不能被修改(以下代码是不成立的):  
-					`*pt += 1;`  
-					`cin >> *pt;`  
-					但是有一个很微妙的问题.pt的声明并不意味这它指向的值实际上就是一个常量,而只是对于pt而言是常量.例如上面的情况下,可以直接通过age变量来修改age的值(前提是age本身不是常量).(另外C++进制将const地址赋给非const指针)  
-					再回到之前的声明:  
-					`int age = 39;`  
-					`const int * pt = &age;`  
-					第二个声明只能防止修改pt指向的值,而不能防止修改pt的值,也就是说,可以将一个新地址赋给pt,但仍然不能用pt来修改其值.  
-				* 第二种:使用const的方法时的无法修改指针的值:
-					* `int sloth = 3;`
-					* `const int * ps = &sloth;`
-					* `int * const finger = &sloth;`
-					* 最后一个声明使得finger只能指向sloth,但允许用finger来修改sloth的值.
-	4. ### 函数和二维数组
-	5. ### 函数和C-风格字符串
-		1. **将C-风格字符串作为参数的函数**  
-			假设要将字符串作为参数传递给函数,则表示字符串的方法有三种:
-			* char数组
-			* 用引号括起的字符串常量
-			* 被设置为字符串地址的char指针
-		
-			可以说将字符串作为参数来传递,但实际传递的是字符串的第一个字符的地址.  
-			C-风格字符串与常规char数组之间的一个重要区别就是,字符串由内置的结束字符.
-		2. **返回C-风格字符串的函数**  
-		 	函数无法返回一个字符串,但是可以返回字符串的地址.
-			```Cpp
-			#include <iostream>
-			char * buildstr(char r, int n);
-			int main()
-			{
-			    using namespace std;
-			    int times;
-			    char ch;
-			    cout << "Enter a character: ";
-			    cin >> ch;
-			    cout << "Enter an integer: ";
-			    cin >> times;
-			    char *ps = buildstr(ch, times);
-			    cout << ps << endl;
-			    delete [] ps;
-			    ps = buildstr('+',4);
-			    cout << ps << "-DONE-" << ps << endl;
-			    delete [] ps;
-			    return 0;
-			}
-			char * buildstr(char c, int n)
-			{
-			     char * pstr = new char[n+1];
-			     pstr[n] = '\0';
-			     while ( n-- > 0)
-			         pstr[n] = c;
-			     return pstr;
-			}
-			
-			output:
-			Enter a charcater: **V**
-			Enter an integer: **14**
-			vvvvvvvvvvvvvv
-			vvvv-DONE-vvvv
-			```
-	6. ### 函数和结构体
-		1. **传递和返回结构体**
-		2. **另一个处理结构体的函数示例**
-		3. **传递结构体的地址**
-	7. ### 函数和string对象
-	8. ### 函数与array对象
-	9. ### 递归
-		1. **包含一个递归调用的递归**
-		2. **包含多个递归调用的递归**
-	10. ### 函数指针
-		与数据相似,函数也有地址.函数的地址是存储其机器代码的内存开始的地址.
-		1. **函数指针的基础知识**
-			1. *获取函数的地址*  
-			   函数的地址就是其函数名(后面不跟参数).
-			2. *声明函数指针*  
-			   声明指向某种数据类型的指针时,必须指定指针指向的类型.  
-			   假如编写了一个函数:  
-			   `double pam(int);`  
-			   则正确的指针类型声明如下:  
-			   `double (*pf)(int);`  
-			   (*pf)是函数,pf是函数指针.
-			3. *使用指针来调用函数*
-				```Cpp
-			   	double pam(int);
-			   	double (*pf)(int);
-			   	pf = pam;
-			   	double x = pam(4);
-			   	double y = (*pf)(5);
-			   ```
-				最后一句也可以这么写`double y = pf(int);`  
-		2. **函数指针示例**
-		3. **深入探讨函数指针**
-		4. **使用typedef进行简化**
+6. ## 函数---C++的编程模块
+  1. ### 复习函数的基本知识
+  	1. **定义函数**
+  	2. **函数原型和函数调用**
+  3. ### 函数参数和按值传递
+  	1. **多个参数**
+  	2. **另外一个接受两个参数的函数**
+  3. ### 函数和数组
+    1. **使用数组区间的函数**
+      ```Cpp
+      #include <iostream>
+      const int ArSize = 8;
+      int sum_arr(const int * begin, const int * end);
+      int main()
+      {
+          using namespace std;
+          int cookies[ArSize] = {1,2,4,8,16,32,64,128};
+          int sum = sum_arr(cookies, cookies + ArSize);
+          cout << "Total cookies eaten: " << sum << << " cookies.\n";
+          sum = sum_arr(cookies, sookies + 3);
+          cout << "First thre eaters ate " << sum << " cookies.\n);
+          sum = sum_arr(cookies + 4,cookies + 8);
+          cout << "Last four eaters ate " << sum << " cookies.\n";
+          return 0;
+      }
+          int sum_arr(const int * begin, const int * end)
+          {
+      	const int * pt;
+      	int total;
+      	for(pt = begin; pt != end; pt++)
+      	     total =total + *pt;
+              return total;
+          	    }
+      	
+      output:
+      Total cookies eaten: 255
+      First thre  eaters ate 7 cookies.
+      Last four eaters ate 240 cookies.
+      ```
+      2. **指针和const**   
+        将const用于指针有一些很微妙的地方.可以有两种不同的方式将const关键字用于指针.第一种是让指针指向一个常量对象,这样可以防止使用该指针来修改所指向的值；第二种是将指针本身声明为常量,这样可以防止改变指针指向的值.  
+        * 首先,声明一个指向常量的指针pt:  
+
+          `int age = 39；`  
+          `const int * pt = &age;`  
+          该声明指出,pt指向一个const int,因此不能用pt来修改这个值,即*pt为常量不能被修改(以下代码是不成立的):  
+          `*pt += 1;`  
+          `cin >> *pt;`  
+          但是有一个很微妙的问题.pt的声明并不意味这它指向的值实际上就是一个常量,而只是对于pt而言是常量.例如上面的情况下,可以直接通过age变量来修改age的值(前提是age本身不是常量).(另外C++进制将const地址赋给非const指针)  
+          再回到之前的声明:  
+          `int age = 39;`  
+          `const int * pt = &age;`  
+          第二个声明只能防止修改pt指向的值,而不能防止修改pt的值,也就是说,可以将一个新地址赋给pt,但仍然不能用pt来修改其值.  
+
+        * 第二种:使用const的方法时的无法修改指针的值:
+
+           * `int sloth = 3;``
+           * `const int * ps = &sloth;``
+           * `int * const finger = &sloth;`
+
+         * 最后一个声明使得finger只能指向sloth,但允许用finger来修改sloth的值.
+  4. ### 函数和二维数组
+  5. ### 函数和C-风格字符串
+  	1. **将C-风格字符串作为参数的函数**  
+  		假设要将字符串作为参数传递给函数,则表示字符串的方法有三种:
+  		* char数组
+  		* 用引号括起的字符串常量
+  		* 被设置为字符串地址的char指针
+  	
+  		可以说将字符串作为参数来传递,但实际传递的是字符串的第一个字符的地址.  
+  		C-风格字符串与常规char数组之间的一个重要区别就是,字符串由内置的结束字符.
+  	2. **返回C-风格字符串的函数**  
+  	 	函数无法返回一个字符串,但是可以返回字符串的地址.
+  		```Cpp
+  		#include <iostream>
+  		char * buildstr(char r, int n);
+  		int main()
+  		{
+  		    using namespace std;
+  		    int times;
+  		    char ch;
+  		    cout << "Enter a character: ";
+  		    cin >> ch;
+  		    cout << "Enter an integer: ";
+  		    cin >> times;
+  		    char *ps = buildstr(ch, times);
+  		    cout << ps << endl;
+  		    delete [] ps;
+  		    ps = buildstr('+',4);
+  		    cout << ps << "-DONE-" << ps << endl;
+  		    delete [] ps;
+  		    return 0;
+  		}
+  		char * buildstr(char c, int n)
+  		{
+  		     char * pstr = new char[n+1];
+  		     pstr[n] = '\0';
+  		     while ( n-- > 0)
+  		         pstr[n] = c;
+  		     return pstr;
+  		}
+  		
+  		output:
+  		Enter a charcater: **V**
+  		Enter an integer: **14**
+  		vvvvvvvvvvvvvv
+  		vvvv-DONE-vvvv
+  		```
+  6. ### 函数和结构体
+  	1. **传递和返回结构体**
+  	2. **另一个处理结构体的函数示例**
+  	3. **传递结构体的地址**
+  7. ### 函数和string对象
+  8. ### 函数与array对象
+  9. ### 递归
+  	1. **包含一个递归调用的递归**
+  	2. **包含多个递归调用的递归**
+  10. ### 函数指针
+  	与数据相似,函数也有地址.函数的地址是存储其机器代码的内存开始的地址.
+  	1. **函数指针的基础知识**
+  		1. *获取函数的地址*  
+  		   函数的地址就是其函数名(后面不跟参数).
+  		2. *声明函数指针*  
+  		   声明指向某种数据类型的指针时,必须指定指针指向的类型.  
+  		   假如编写了一个函数:  
+  		   `double pam(int);`  
+  		   则正确的指针类型声明如下:  
+  		   `double (*pf)(int);`  
+  		   (*pf)是函数,pf是函数指针.
+  		3. *使用指针来调用函数*
+  			```Cpp
+  		   	double pam(int);
+  		   	double (*pf)(int);
+  		   	pf = pam;
+  		   	double x = pam(4);
+  		   	double y = (*pf)(5);
+  		   ```
+  			最后一句也可以这么写`double y = pf(int);`  
+  	2. **函数指针示例**
+  	3. **深入探讨函数指针**
+  	4. **使用typedef进行简化**
 8. ## 深入探索函数
 	1. ### C++内联函数
 		该特性可以让程序减少跳跃到函数所在地址的时间,但是相应的将会占用更多的内存.  
@@ -1314,16 +1356,19 @@ categories: note
 			
 		2. **可对矢量执行的操作**
 			* 除分配存储空间外,vector模板还可以完成:size()---返回容器中元素数目,swap()---交换两个容器的内容,begin()---返回一个指向容器的第一个元素的迭代器,end()---返回一个表示超过容器尾的迭代器.
+			
 			* 迭代器是一个广义指针.事实上它可以是指针,也可以是一个可对其执行类似指针的操作---如解除引用(如operate*())和递增(如operate++())---的对象.
+			
 			* 每个容器类都定义了一个合适的迭代器,vector迭代器的类型是一个名为iterator的typedef,其作用域是整个类.例如,要为vector的double类型规范声明一个迭代器:  
 			
-				`vector<double>::iterator pd;`  
-				假设scores是一个vector<double>对象:  
-				`vector<double> scores;`  
-				则可以使用迭代器pd执行这样的操作:  
-				`pd = scores.begin();`  
-				`*pd = 22.3;`  
-				`++pd;`
+			  `vector<double>::iterator pd;`  
+			  假设scores是一个vector<double>对象:  
+			  `vector<double> scores;`  
+			  则可以使用迭代器pd执行这样的操作:  
+			  `pd = scores.begin();`  
+			  `*pd = 22.3;`  
+			  `++pd;`
+			
 			* 还有一个C++11自动类型推断很有用的地方.例如,可以不这样做:
 			
 				`vector<double>::iterator pd = score.begin();`  
@@ -1334,13 +1379,13 @@ categories: note
 				`cout << *pd << endl;`
 			* 所有容器都包含刚才讨论的方法.vector模板类也包含了一些只有某些STL容器才有的方法.如push_back(),它将元素添加到矢量末尾:
 			
-				```Cpp
-				vector<double> scores;
-				double temp;
-				while (cin >> temp &&temp >= 0)
-				 	scores.push_back(temp);
-				cout << "You entered " << scores.size() << " scores.\n";
-				```
+			```c++
+			vector<double> scores;
+			double temp;
+			while (cin >> temp &&temp >= 0)
+			 	scores.push_back(temp);
+			cout << "You entered " << scores.size() << " scores.\n";
+			```
 			* erase()方法删除矢量中给定区间的元素.它接受两个迭代器的参数,这些参数定义了要删除的区间(包括第一个,不包括第二个):  
 			`scores.erase(scores.begin(), scores.begin() + 2);`
 			* insert()方法的功能与erase()相反.它接受三个迭代器参数,第一个参数指定了新元素的插入位置,第二个和第三个迭代器参数定义了被插入区间,该区间通常是另一个容器对象的一部分.例如,下面将矢量new_v中的元素插入到old_v矢量的第一个元素前面:  
@@ -1428,165 +1473,177 @@ categories: note
 			* 对于有些常见的操作的方法,STL并没有为每个容器定义成员函数,而是定义了一个适用于所有容器类的非成员函数.下面来看3个具有代表性的STL函数: for_esch(), random_shuffle, sort().
 			* for_each()函数可用于很多容器,它接受三个参数.前两个是定义容器中间区间的迭代器,最后一个是指向函数的指针.for_each()函数将被指向的函数应用于容器区间中的各个元素.被指向的函数不能修改容器元素的值.可以用for_each()来代替for循环:
 			
-				```Cpp
-				vector<Review>::iterator
-				pr;
-				for (pr = books.begin();
-				pr != books.end(); pr++)
-				ShowReview(*pr);
-				```
-				可替换为:
-				`for_each(books.begin(), books.end(), ShowReview);`
+			```Cpp
+			vector<Review>::iterator
+			pr;
+			for (pr = books.begin();
+			pr != books.end(); pr++)
+			ShowReview(*pr);
+			
+			可替换为:
+			`for_each(books.begin(), books.end(), ShowReview);`
+			```
 			* Random_shuffle()函数接受两个指定区间的迭代器参数,并随即排列该区间中的元素:  
 			
-				`random_shuffle(books.begin(), books.end());`  
-				与可用于任何容器的for_each()函数不同,该函数要求容器允许随机访问.
+			  `random_shuffle(books.begin(), books.end());`  
+			  与可用于任何容器的for_each()函数不同,该函数要求容器允许随机访问.
+			
 			* sort()函数也要求容器支持随机访问.该函数有两个版本:第一个版本接受两个定义区间的迭代器参数,并使用为存储在容器中的类型元素定义的<运算符,对区间中的元素进行操作.例如下面的语句按升序对coolstuff进行排序:
 			
-				```Cpp
-				vector<int> coolstuff;
-				...
-				sort(coolstuff.begin(), coolstuff.end());
-				```
+			  ```Cpp
+			  vector<int> coolstuff;
+			  ...
+			  sort(coolstuff.begin(), coolstuff.end());
+			  ```
+			
 			* 如果容器元素是用户定义的对象,则要使用sort(),必须定义能够处理该类型对象的operate<()函数.例如,为对结构体Review进行排序:
 			
-				```Cpp
-				bool operate<(const Review & r1, const Review & r2)
-				{
-				    if (r1.title < r2.title)
-				        return true;
-				    else if (r1.title == r2.title && r1.rating < r2.rating)
-				        return true;
-				    else return false;
-				}
-				```
-				有了这样的函数后,就可以对包含Review对象(如books)的矢量进行排序:
-				`sort(books.begin(), books.end());`  
-				如果想按降序或是rating排序,则可以使用另一种格式的sort().它接受三个参数,前面两个参数也是指定区间的迭代器,最后一个参数是指向要使用的函数的指针,而不是用于比较的operate<():
-				```Cpp
-				bool Worsethan(const Review & r1, const Review & r2)
-				{
-				    if (r1.rating < r2.rating)
-				        return true;
-				    else
-				        return false;
-				}
-				```
-				之后就可以用下面的语句将包含Review对象的books矢量按rating升序排列:
-				`sort(books.begin(), books.end(), Worsethan);`  
+			  ```Cpp
+			  bool operate<(const Review & r1, const Review & r2)
+			  {
+			      if (r1.title < r2.title)
+			          return true;
+			      else if (r1.title == r2.title && r1.rating < r2.rating)
+			          return true;
+			      else return false;
+			  }
+			  ```
+			  有了这样的函数后,就可以对包含Review对象(如books)的矢量进行排序:
+			  `sort(books.begin(), books.end());`  
+			  如果想按降序或是rating排序,则可以使用另一种格式的sort().它接受三个参数,前面两个参数也是指定区间的迭代器,最后一个参数是指向要使用的函数的指针,而不是用于比较的operate<():
+			  ```Cpp
+			  bool Worsethan(const Review & r1, const Review & r2)
+			  {
+			      if (r1.rating < r2.rating)
+			          return true;
+			      else
+			          return false;
+			  }
+			  ```
+			  之后就可以用下面的语句将包含Review对象的books矢量按rating升序排列:
+			  `sort(books.begin(), books.end(), Worsethan);`  
 			
 		4. **基于范围的for循环(C++11)**
 			* 按照第五章的内容可以将以下语句:  
-			`for_each(books.begin(), books,end(), ShowReview);`  
-			替换为:  
-			`for (auto x : books) ShowReview(x);`
+			  `for_each(books.begin(), books,end(), ShowReview);`  
+			  替换为:  
+			  `for (auto x : books) ShowReview(x);`
+			
 			* 不同于for_each(),基于范围的for循环可修改容器的内容,诀窍是指定一个引用参数:
 			
-				```Cpp
-				void InflatReview(Review &r)
-				    {r.rating++;}
-				for (auto & x : books)
-				    InflatReview(x);
-				```
+			  ```Cpp
+			  void InflatReview(Review &r)
+			      {r.rating++;}
+			  for (auto & x : books)
+			      InflatReview(x);
+			  ```
 	4. ### 泛型编程
 		1. **为何使用迭代器**
 			* 模板使得算法独立于存储的数据类型,而迭代器使得算法独立于使用的容器类型.
+			
 			* 举个例子,来看看如何为两种不同数据表示实现find函数,然后来看如何推广这种方法.首先来看,在一个double数组中搜索特定值得函数:
 			
-				```Cpp
-				double * find_ar(double * ar, int n, const double & val)
-				{
-				    for (int i = 0, i < n; i++)
-				        if (ar[i] == val)
-					    return &ar[i];
-				    return 0;
-				}
-				```
-				可以用模板将这种算法推广到包含==运算符的,任意类型的数组.尽管如此,这种算法仍与一种特定的数据结构(数组)关联在一起.
+			  ```Cpp
+			  double * find_ar(double * ar, int n, const double & val)
+			  {
+			      for (int i = 0, i < n; i++)
+			          if (ar[i] == val)
+			  	    return &ar[i];
+			      return 0;
+			  }
+			  ```
+			  可以用模板将这种算法推广到包含==运算符的,任意类型的数组.尽管如此,这种算法仍与一种特定的数据结构(数组)关联在一起.
+			
 			* 下面来看另一种数据结构---链表的情况:
 			
-				```Cpp
-				Node * find_ll(Node * head, const double & val)
-				{
-				    Node * start;
-				    for (start = head; start != 0; start = start->p_next)
-				        if (start->item == val)
-					    return start;
-				    return 0;
-				}
-				```
-				同样也可以用模板将这种算法推广到支持==运算符的任何数据类型的链表.然而这也是,与特定的数据结构---链表关联在一起.
+			  ```Cpp
+			  Node * find_ll(Node * head, const double & val)
+			  {
+			      Node * start;
+			      for (start = head; start != 0; start = start->p_next)
+			          if (start->item == val)
+			  	    return start;
+			      return 0;
+			  }
+			  ```
+			  同样也可以用模板将这种算法推广到支持==运算符的任何数据类型的链表.然而这也是,与特定的数据结构---链表关联在一起.
+			
 			* *泛型编程旨在使用同一个find函数来处理数组,链表或其他任何容器类型.即函数不仅独立于容器中存储的数据类型,而且独立于容器本身的数据结构.模板提供了存储在容器中的数据类型的通用表达式,因此还需要遍历容器中的值的通用表示,迭代器正式这样的通用表示*.
+			
 			* 要实现find函数迭代器应具备以下特征:
-				* 应能够对迭代器执行解除引用的操作,以便能够访问它引用的值.即如果p是一个迭代器,则应对*p进行定义.
-				* 应能够将一个迭代器赋给另一个.即如果p和q都是迭代器,则应对表达式p=q进行定义.
-				* 应能够将一个迭代器与另一个迭代器进行比较,看它们是否相等.即如果p和q都是迭代器,则应对p==q和p!=q进行定义.
-				* 应能够使用迭代器遍历容器中的所有元素,这可以通过为迭代器p定义++p和p++来实现.
+			
+			 * 应能够对迭代器执行解除引用的操作,以便能够访问它引用的值.即如果p是一个迭代器,则应对*p进行定义.
+			  * 应能够将一个迭代器赋给另一个.即如果p和q都是迭代器,则应对表达式p=q进行定义.
+			  * 应能够将一个迭代器与另一个迭代器进行比较,看它们是否相等.即如果p和q都是迭代器,则应对p==q和p!=q进行定义.
+			  * 应能够使用迭代器遍历容器中的所有元素,这可以通过为迭代器p定义++p和p++来实现.
+			
 			* 因此,可以重新编写find_arr()函数:
 			
-				```Cpp
-				typedef double * iterator;
-				iterator find_ar(iterator ar, int n, const double & val)
-				{
-				    for (int i = 0; i < n; i++, ar++)
-				        if (*ar == val)
-					    return ar;
-				    return 0;
-				}
-				```
-				然后可以修改参数函数,使之接受两个指示区间的指针参数,其中一个指向数组的起始位置,另一个指向数组的超尾.下面的代码完成了这些修改:
-				```Cpp
-				typedef double * iterator;
-				iterator find_ar(iterator begin, iterator end, consr double & val)
-				{
-				    iterator ar;
-				    for (ar = begin; ar != end; ar++)
-				        if (*ar == val)
-					    retyrn ar;
-				    return end;
-				}
-				```
+			  ```Cpp
+			  typedef double * iterator;
+			  iterator find_ar(iterator ar, int n, const double & val)
+			  {
+			      for (int i = 0; i < n; i++, ar++)
+			          if (*ar == val)
+			  	    return ar;
+			      return 0;
+			  }
+			  ```
+			  然后可以修改参数函数,使之接受两个指示区间的指针参数,其中一个指向数组的起始位置,另一个指向数组的超尾.下面的代码完成了这些修改:
+			  ```Cpp
+			  typedef double * iterator;
+			  iterator find_ar(iterator begin, iterator end, consr double & val)
+			  {
+			      iterator ar;
+			      for (ar = begin; ar != end; ar++)
+			          if (*ar == val)
+			  	    retyrn ar;
+			      return end;
+			  }
+			  ```
+			
 			* 对于find_ll函数,可以定义一个迭代器类,其中定义了运算符*和++:
 			
-				```Cpp
-				struct Node
-				{
-				    double item;
-				    Node * p_next;
-				};
-				
-				class iterator
-				{
-				    Node * pt;
-				public:
-				    iterator() : pt(0) {}
-				    iterator (Node * pn) : pt(pn) {}
-				    double operate*() { return pt->item;}
-				    iterator& operate++()	// for ++it
-				    {
-				        pt = pt->p_next;
-					return * this;
-				    }
-				    iterator operate++(int)	// for it++
-				    {
-				        iterator tmp = *this;
-					pt = pt->p_next;
-					return tmp;
-				    }
-				};
-				```
-				有了这样的类后,第二个find函数就可以这样编写:
-				```Cpp
-				iterator find_ll(iterator head, const double & val)
-				{
-				    iterator start;
-				    for (start = head; start != 0; ++start)
-				        if (*start == val)
-					    return start;
-				    return 0;
-				}
-				```
-				这样这两个函数的差别只在于达到最后一个值.find_ar()函数使用超尾迭代器,find_ll()函数使用存储在最后一个节点中的空值.,这时可以要求表的最后一个元素后面还有一个额外元素,即让数组和链表都有超尾元素.
+			  ```Cpp
+			  struct Node
+			  {
+			      double item;
+			      Node * p_next;
+			  };
+			  
+			  class iterator
+			  {
+			      Node * pt;
+			  public:
+			      iterator() : pt(0) {}
+			      iterator (Node * pn) : pt(pn) {}
+			      double operate*() { return pt->item;}
+			      iterator& operate++()	// for ++it
+			      {
+			          pt = pt->p_next;
+			  	return * this;
+			      }
+			      iterator operate++(int)	// for it++
+			      {
+			          iterator tmp = *this;
+			  	pt = pt->p_next;
+			  	return tmp;
+			      }
+			  };
+			  ```
+			  有了这样的类后,第二个find函数就可以这样编写:
+			  ```Cpp
+			  iterator find_ll(iterator head, const double & val)
+			  {
+			      iterator start;
+			      for (start = head; start != 0; ++start)
+			          if (*start == val)
+			  	    return start;
+			      return 0;
+			  }
+			  ```
+			  这样这两个函数的差别只在于达到最后一个值.find_ar()函数使用超尾迭代器,find_ll()函数使用存储在最后一个节点中的空值.,这时可以要求表的最后一个元素后面还有一个额外元素,即让数组和链表都有超尾元素.
+			
 			* STL遵循上面介绍的方法.首先,每个容器类定义了相应的迭代器类型；每个容器类都有一个超尾标记...
 		2. **迭代器类型**
 			* 不同的算法对迭代器的要求也不同.例如,查找算法需要定义++运算符,以便迭代器能够遍历整个容器；而排序运算符要求能够随机访问.
